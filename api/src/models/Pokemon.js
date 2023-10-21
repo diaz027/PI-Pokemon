@@ -21,15 +21,25 @@ module.exports = (sequelize) => {
         defaultValue: ''
       },
       life_span: {
-        type: DataTypes.NUMBER,
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      }, 
+      attack: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+        allowNull: false,
+      },
+      defense: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
         allowNull: false,
       },
       height: {
-        type: DataTypes.NUMBER,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       weight: {
-        type: DataTypes.NUMBER,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
 
