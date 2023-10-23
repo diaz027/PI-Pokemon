@@ -8,7 +8,8 @@ function Init() {
     }
 
   return (
-    <div className={style.img}>
+    
+    <div>
       <h1>bienvenidos a Pokedexs</h1>
       
       <button onClick={navigateHandler}>HOME</button>

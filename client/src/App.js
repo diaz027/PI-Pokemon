@@ -1,7 +1,10 @@
-import { Routes, Route } from 'react-router-dom';
 import './App.css';
+import { Routes, Route} from 'react-router-dom';
 import Init from './views/landing/landing';
 import Home from './views/home/home';
+import Details from './views/detail/details';
+import Form from './views/form/form';
+
 
 function App() {
   return (
