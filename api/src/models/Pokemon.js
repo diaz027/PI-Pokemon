@@ -20,7 +20,7 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         defaultValue: ''
       },
-      life_span: {
+      hp: {
         type: DataTypes.INTEGER,
         allowNull: false,
       }, 
@@ -42,12 +42,6 @@ module.exports = (sequelize) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-
-
-      // Ataque. *
-      // Defensa. *
-      // Velocidad.
-
     },
     { timestamps: false }
   );
