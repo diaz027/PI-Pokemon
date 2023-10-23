@@ -1,5 +1,5 @@
 const axios = require('axios')
-// const { Pokemon, Type} = requiere('../db');
+const { Pokemon, Type} = requiere('../db');
 
 const getPokemonById = async(idPokemon) => {
     //hacer un if con la info de la db
