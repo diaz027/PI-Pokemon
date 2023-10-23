@@ -9,7 +9,7 @@ const getPokemon = async () => {
     const newPokemon = pokemonDb.map((pokemon) => {
         return {
             id: pokemon.id,
-            name:pokemon.name,
+            name: pokemon.name,
             image: pokemon.image,
             hp: pokemon.hp,
             attack: pokemon.attack,
