@@ -3,7 +3,7 @@ const { Pokemon, Type} = require('../db');
 
 const getPokemonById = async(idPokemon) => {
     //hacer un if con la info de la db
-  if(idPokemon.toString().length > 3){
+  if(idPokemon.toString().length > 5){
     const pokemonDb = [await Pokemon.findAll(idPokemon, { include: { model: Type } })]
     const newPokemon = pokemonDb.map((pokemon) => {
         return {
