@@ -4,6 +4,7 @@ const getPokemonHandlers = require('../handlers/getPokemon');
 const getByIdHandlers = require('../handlers/getById');
 const getNameHandlres = require('../handlers/getPokeName');
 const createPost = require('../handlers/createPoke');
+const getTypeHandlers = require('../handlers/getTypesHandlres');
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
@@ -14,7 +15,7 @@ mainRouter.get('/name', getNameHandlres )
 mainRouter.get('/pokemons/:idPokemon', getByIdHandlers)
 mainRouter.get('/pokemons', getPokemonHandlers)
 mainRouter.get('/pokemons', createPost)
-// mainRouter.get('/', )
+mainRouter.get('/types',getTypeHandlers )
 
 
 
