@@ -13,7 +13,7 @@ const createPokemon = async(name, image, hp, attack, defense, height, weight, ty
   })
 
   types.forEach(async (tipes) => {
-    const allTypes = await Type.findOne({where: {name: tipes}});
+    const allTypes = await Type.findOne({where: {name: tipes}});// busco los tipes por cada nombres
     await response.addType(allTypes)//el nuevo pokemon que agrego le pongo un type
   });
     return response;
