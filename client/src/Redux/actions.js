@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { GET_NAME, GET_POKEMON } from './actions-types'
+import { GET_ID, GET_NAME, GET_POKEMON } from './actions-types'
 
 export const getPokemon = () =>{
     return async (dispatch) =>{
@@ -23,5 +23,15 @@ export const getPokeName = (name) => {
         } catch (error) {
             alert(`No se encontró ningún perro con el nombre "${name}"`);
         }
+    }
+}
+
+export const getById = (id) => {
+    return async (dispatch) => {
+            const response = await axios.get(`http://localhost:3001/dogs/${id}`)
+        dispatch({
+            type: GET_ID,
+            payload: response.data
+        })
     }
 }
