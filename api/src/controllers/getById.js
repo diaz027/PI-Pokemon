@@ -30,7 +30,8 @@ const getPokemonById = async (idPokemon) => {
     attack: apiInfo.stats[1]["base_stat"],
     defense: apiInfo.stats[2]["base_stat"],
     height: apiInfo.height,
-    weight: apiInfo.weight
+    weight: apiInfo.weight,
+    types: apiInfo.types.map(type => type.type.name)
 }
   return pokemonFund;
 }
