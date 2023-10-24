@@ -13,7 +13,8 @@ const getName = async (name) => {
         attack: pokemon.stats[1]["base_stat"],
         defense: pokemon.stats[2]["base_stat"],
         height: pokemon.height,
-        weight: pokemon.weight
+        weight: pokemon.weight,
+        types: pokemon.types.map(type => type.type.name)
     }
     return pokemonDb.concat(pokemonFund);
 }

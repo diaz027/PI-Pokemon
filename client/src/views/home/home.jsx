@@ -10,7 +10,8 @@ const Home = () =>{
     useEffect(() =>{
         dispatch(getPokemon());
     }, [dispatch]);
-console.log(getPokemon);
+
+    
     return(
         <div>
             <h1>estas en home</h1>

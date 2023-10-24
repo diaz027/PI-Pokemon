@@ -1,4 +1,4 @@
-import { GET_POKEMON } from "./actions-types"
+import { GET_NAME, GET_POKEMON } from "./actions-types"
 
 
 let initialState = {
@@ -9,9 +9,10 @@ let initialState = {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_POKEMON:
-            return{...state,
-                 pokemones:action.payload,
-                  newPokes:[...action.payload]}
+            return{...state, pokemones:action.payload, newPokes:action.payload}
+
+        case GET_NAME:
+            return{...state, pokemones: action.payload, newPokes: action.payload}
 
 
             default:

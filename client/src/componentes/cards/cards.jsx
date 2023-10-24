@@ -6,7 +6,6 @@ const Cards = ({ pokemones }) => {
     return (
         <div>
             {pokemones.map(({ id, name, image, hp, attack, defense, height, weight, types }) => {
-                console.log(id)
                 return (
                     <Card
                         key={id}

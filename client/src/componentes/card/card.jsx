@@ -8,7 +8,7 @@ function Card({ id, name, image, types}) {
             <Link to={`/detail/${id}`}>
                 <h2>{name}</h2>
             </Link>
-            <p>Tipos: {types.join(', ')}</p>
+            <p>Tipos: {types}</p>
             <img src={image} />
         </div>
     )
