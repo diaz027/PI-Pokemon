@@ -14,7 +14,7 @@ const mainRouter = Router();
 mainRouter.get('/name', getNameHandlres )
 mainRouter.get('/pokemons/:idPokemon', getByIdHandlers)
 mainRouter.get('/pokemons', getPokemonHandlers)
-mainRouter.get('/pokemons', createPost)
+mainRouter.post('/pokemons', createPost)
 mainRouter.get('/types',getTypeHandlers )
 
 
