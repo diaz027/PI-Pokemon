@@ -10,8 +10,7 @@ function Init() {
   return (
     
     <div>
-      <h1>bienvenidos a Pokedexs</h1>
-      
+      <h1>bienvenidos a Pokedex</h1>
       <button onClick={navigateHandler}>HOME</button>
     </div>
   );

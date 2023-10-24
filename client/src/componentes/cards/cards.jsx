@@ -1,9 +1,15 @@
+import React from 'react';
+// import { v4 as uuidv4 } from 'uuid'; // Importa la función uuid
 import Card from "../card/card";
 
-const Cards = ({ newPokes }) => {
+const Cards = ({ pokemones }) => {
+    
     return (
         <div>
-            {newPokes.map(({ id, name, image, hp, attack, defense, height, weight, types }) => {
+            {pokemones.map(({ id, name, image, hp, attack, defense, height, weight, types }) => {
+                // const uniqueKey = uuidv4();//generar una clave única para cada elemento en lugar de depender de las propiedades id
+                console.log(pokemones);
+                console.log(id)
                 return (
                     <Card
                         key={id}
@@ -23,4 +29,5 @@ const Cards = ({ newPokes }) => {
         </div>
     )
 }
+
 export default Cards;

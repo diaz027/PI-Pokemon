@@ -1,7 +1,7 @@
 require('dotenv').config();
 const axios = require('axios')
 const { Pokemon, Type } = require('../db')
-const URL = `https://pokeapi.co/api/v2/pokemon/?limit50`
+const URL = `https://pokeapi.co/api/v2/pokemon/?limit=50`
 
 
 const getPokemon = async () => {
@@ -20,8 +20,9 @@ const getPokemon = async () => {
     })
 
     const respose = await axios.get(`${URL}`)
-    const result = respose.data;
-    return newPokemon.concat(result);
+    const pokeResult = respose.data.results;
+    console.log(pokeResult);
+    return newPokemon.concat(pokeResult);
 }
 
 module.exports = getPokemon;

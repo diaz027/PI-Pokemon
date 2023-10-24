@@ -9,7 +9,9 @@ let initialState = {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_POKEMON:
-            return{...state, pokemones:action.payload, newPokes:action.payload}
+            return{...state,
+                 pokemones:action.payload,
+                  newPokes:[...action.payload]}
 
 
             default:

@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 
-function Card({ id, name, image, types }) {
+function Card({ id, name, image, types}) {
 
+
+ 
     return (
         <div >
             <Link to={`/detail/${id}`}>
