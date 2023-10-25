@@ -1,4 +1,5 @@
 import {useNavigate} from 'react-router-dom'
+import style from './landing.module.css'
 
 function Init() {
 
@@ -9,7 +10,7 @@ function Init() {
 
   return (
     
-    <div>
+    <div className={style.body}>
       <h1>bienvenidos a Pokedex</h1>
       <button onClick={navigateHandler}>HOME</button>
     </div>
