@@ -4,7 +4,7 @@ import { getPokeName, getPokemon } from "../../Redux/actions";
 
 
 
-const SearchBar = () => {
+const SearchBar = ({setCurrentPage}) => {
     const [name, setName] = useState('');
     const dispatch = useDispatch();
     
@@ -12,6 +12,7 @@ const SearchBar = () => {
     const handleOnclick = async () => {
         const response = await dispatch(getPokeName(name));
         setName('');
+        setCurrentPage(0)
     }
 
     const handleName = (event) => {

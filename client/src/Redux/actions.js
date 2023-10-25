@@ -1,9 +1,10 @@
 import axios from 'axios'
-import { GET_ID, GET_NAME, GET_POKEMON } from './actions-types'
+import { GET_ID, GET_NAME, GET_POKEMON, ORDER_A_Z } from './actions-types'
 
 export const getPokemon = () =>{
     return async (dispatch) =>{
         const response = await axios.get(`http://localhost:3001/pokemons`)
+        console.log(response.data);
          dispatch({
             type: GET_POKEMON,
             payload: response.data
@@ -32,4 +33,8 @@ export const getById = (id) => {
             payload: response.data
         })
     }
+}
+
+export const orderAlfa = (order) =>{
+    return { type: ORDER_A_Z, payload: order}
 }

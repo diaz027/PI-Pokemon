@@ -9,13 +9,14 @@ const createPokemon = async(name, image, hp, attack, defense, height, weight, ty
     attack,
     defense,
     height,
-    weight
+    weight,
+    types
   })
 
-
-    const allTypes = await Type.findOne({where: {name: types}});// busco los types por cada nombres
-    await response.addType(allTypes)//el nuevo pokemon que agrego le pongo un type
-  
+  types.map(async (temp) => { 
+    const firstType = await Type.findOne({ where: { name: temp} });
+      await response.addTypes(firstType);
+    });
     return response;
 }
 module.exports = createPokemon;
