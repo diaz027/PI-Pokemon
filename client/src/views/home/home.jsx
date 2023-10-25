@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import Cards from "../../componentes/cards/cards";
-import { getPokemon } from "../../Redux/actions";
+import { getPokemon, orderAlfa } from "../../Redux/actions";
 
 
 //paginado
@@ -9,11 +9,11 @@ const POKEMON_PER_PAGE = 12;
 
 const Home = () =>{
     const allpokes = useSelector((state) => state?.pokemones)
-    console.log(allpokes)
-    const  totalPokemon = allpokes?.length;
+    const dispatch = useDispatch();
+    
+    const totalPokemon = allpokes?.length;
     const totalPage = Math.ceil(totalPokemon / POKEMON_PER_PAGE)
     const  [currentPage, setCurrentPage] = useState(0)
-    const dispatch = useDispatch();
     
     useEffect(() =>{
         dispatch(getPokemon());
@@ -35,14 +35,24 @@ const Home = () =>{
         }
     }
 
+    const handlerOrder = (event) => {
+        dispatch(orderAlfa(event.target.value));
+    }
+
     
     return(
         <div>
+
+            <select onChange={handlerOrder}>
+                <option value="A">A - Z</option>
+                <option value="Z">Z - A</option>
+            </select>
+
             <Cards pokemones={pokeToDisplay} />
 
             <div>
                 <button onClick={prevHandler} disabled={currentPage === 0}>Prev</button>
-                <span> Página:{currentPage + 1} de {totalPage} </span>
+                <span> Página:{currentPage + 1} de {totalPage}</span>
                 <button onClick={nextHandler} disabled={currentPage === totalPage - 1}>Next</button>
             </div>
 
