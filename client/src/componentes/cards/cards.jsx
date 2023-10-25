@@ -1,10 +1,11 @@
 import React from 'react';
 import Card from "../card/card";
+import style from './cards.module.css'
 
 const Cards = ({ pokemones }) => {
     
     return (
-        <div>
+        <div className={style.cards}>
             {pokemones.map(({ id, name, image, hp, attack, defense, height, weight, types }) => {
                 return (
                     <Card
