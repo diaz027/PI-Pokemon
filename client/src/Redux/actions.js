@@ -28,7 +28,7 @@ export const getPokeName = (name) => {
 
 export const getById = (id) => {
     return async (dispatch) => {
-            const response = await axios.get(`http://localhost:3001/dogs/${id}`)
+            const response = await axios.get(`http://localhost:3001/pokemons/${id}`)
         dispatch({
             type: GET_ID,
             payload: response.data
