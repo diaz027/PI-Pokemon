@@ -14,7 +14,6 @@ const Home = () =>{
     
     return(
         <div>
-            <h1>estas en home</h1>
             <Cards pokemones={allpokes} />
 
         </div>
