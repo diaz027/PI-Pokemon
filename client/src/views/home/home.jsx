@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import Cards from "../../componentes/cards/cards";
-import { filterApiDb, getPokemon, orderAlfa, orderAttack } from "../../Redux/actions";
+import { allTypes, filterApiDb, filterTypes, getPokemon, orderAlfa, orderAttack } from "../../Redux/actions";
 
 
 //paginado
 const POKEMON_PER_PAGE = 12;
 
 const Home = () => {
+    const allTYPE = useSelector((state) => state?.newTypes)
     const allpokes = useSelector((state) => state?.pokemones)
+    const [types, setTypes] = useState("");
     const dispatch = useDispatch();
 
     const totalPokemon = allpokes?.length;
@@ -45,9 +47,18 @@ const Home = () => {
 
     const handlerDbApi = (event) => {
         const result = event.target.value
+        console.log(result);
         dispatch(filterApiDb(result))
     }
 
+    const handlerFilter = (event) => {
+        const seleccion = event.target.value;
+        setTypes(seleccion);
+        dispatch(filterTypes(seleccion))
+    }
+    useEffect(() => {
+        dispatch(allTypes());
+    }, []);
 
     return (
         <div>
@@ -66,6 +77,11 @@ const Home = () => {
             <select onChange={handlerDbApi} >
                 <option value='api'>api</option>
                 <option value='db'>db</option>
+            </select>
+
+            <select
+                onChange={handlerFilter}>
+                {allTYPE.map(types => <option name={types.name} key={types.key} value={types.name}>{types.name}</option>)}
             </select>
 
 

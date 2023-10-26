@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { createPokemon,  newImagenes } from "../../Redux/actions";
 import validacion from "./validacion";
-import { createPokemon, allTypes, newImagenes } from "../../Redux/actions";
-
+import style from "./create.module.css"
 
 const CrearForm = () => {
     const allTypesPoke = useSelector((state) => state?.newTypes)
@@ -55,9 +55,7 @@ console.log(data);
         setDataIsValid(validateData());
     }, [errors]);
 
-    useEffect(() => {
-        dispatch(allTypes());
-    }, []);
+    
 
     useEffect(() => {
         dispatch(newImagenes());
@@ -73,7 +71,7 @@ console.log(data);
 
 
     return (
-        <div>
+        <div className={style.body}>
             <form onSubmit={handleSubmit}>
 
                 <label >Nombre</label>

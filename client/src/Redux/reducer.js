@@ -1,4 +1,4 @@
-import { CREATE_POKEMON, FILTER_API_DB, GET_ID, GET_NAME, GET_POKEMON, IMAGEN, ORDER_ATAQUE, ORDER_A_Z, TYPES } from "./actions-types"
+import { CREATE_POKEMON, FILTER_API_DB, GET_ID, GET_NAME, GET_POKEMON, IMAGEN, ORDER_ATAQUE, ORDER_A_Z, TYPES, TYPES_FILTER } from "./actions-types"
 
 
 let initialState = {
@@ -33,10 +33,11 @@ const reducer = (state = initialState, action) => {
 
         //filtrados
         case FILTER_API_DB:
+            console.log(action.payload);
             let agua;
             if (action.payload === 'api') {
                 agua = state.pokemones.filter((poke) => poke.id.toString().length < 6)
-            } if (action.payload === 'db') {
+            } else if (action.payload === 'db') {
                 agua = state.pokemones.filter((poke) => poke.id.toString().length > 6)
             }
             return {
@@ -44,6 +45,15 @@ const reducer = (state = initialState, action) => {
                 pokemones: [...agua],
             }
 
+        case TYPES_FILTER:
+            const copyType = [...state.newPokes]
+            const response = [...copyType.filter((poke) => {
+                return poke.types && poke.types.map(element => element.trim()).includes(action.payload)
+            })]
+            return {
+                ...state,
+                pokemones: response
+            }
 
 
         //orderdamiento

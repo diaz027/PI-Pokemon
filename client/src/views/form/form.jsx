@@ -4,7 +4,6 @@ const Form = () =>{
 
     return(
         <div>
-            <h1>este es form</h1>
             <CrearForm/>
         </div>
     )

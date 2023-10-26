@@ -1,10 +1,9 @@
 import axios from 'axios'
-import { CREATE_POKEMON, FILTER_API_DB, GET_ID, GET_NAME, GET_POKEMON, IMAGEN, ORDER_ATAQUE, ORDER_A_Z, TYPES } from './actions-types'
+import { CREATE_POKEMON, FILTER_API_DB, GET_ID, GET_NAME, GET_POKEMON, IMAGEN, ORDER_ATAQUE, ORDER_A_Z, TYPES, TYPES_FILTER } from './actions-types'
 
 export const getPokemon = () =>{
     return async (dispatch) =>{
         const response = await axios.get(`http://localhost:3001/pokemons`)
-        console.log(response.data);
          dispatch({
             type: GET_POKEMON,
             payload: response.data
@@ -71,6 +70,10 @@ export const newImagenes = () => {
               payload: response.data,
         });
   }
+}
+
+export const filterTypes = (name) => {
+    return { type:TYPES_FILTER, payload:name }
 }
 
 
