@@ -1,11 +1,12 @@
-import { CREATE_POKEMON, GET_ID, GET_NAME, GET_POKEMON, ORDER_A_Z, TYPES } from "./actions-types"
+import { CREATE_POKEMON, GET_ID, GET_NAME, GET_POKEMON, IMAGEN, ORDER_A_Z, TYPES } from "./actions-types"
 
 
 let initialState = {
     newPokes:[],//copia
     pokemones: [],//orginal
     detailsPoke:[],
-    newTypes:[]
+    newTypes:[],
+    allImg:[]
 }
 
 const reducer = (state = initialState, action) => {
@@ -24,6 +25,9 @@ const reducer = (state = initialState, action) => {
 
         case TYPES:
             return {...state, newTypes: action.payload}
+
+        case IMAGEN:
+                return {...state, allImg: action.payload}
         
 
         case ORDER_A_Z:

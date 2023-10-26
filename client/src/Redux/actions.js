@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { CREATE_POKEMON, GET_ID, GET_NAME, GET_POKEMON, ORDER_A_Z, TYPES } from './actions-types'
+import { CREATE_POKEMON, GET_ID, GET_NAME, GET_POKEMON, IMAGEN, ORDER_A_Z, TYPES } from './actions-types'
 
 export const getPokemon = () =>{
     return async (dispatch) =>{
@@ -58,6 +58,16 @@ export const allTypes = () => {
         const response = await axios.get(`http://localhost:3001/types`);
         dispatch({
               type: TYPES,
+              payload: response.data,
+        });
+  }
+}
+
+export const newImagenes = () => {
+    return async (dispatch) => {
+        const response = await axios.get(`http://localhost:3001/imagenes`);
+        dispatch({
+              type: IMAGEN,
               payload: response.data,
         });
   }

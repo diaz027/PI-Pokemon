@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import validacion from "./validacion";
-import { createPokemon, allTypes } from "../../Redux/actions";
+import { createPokemon, allTypes, newImagenes } from "../../Redux/actions";
 
 
 const CrearForm = () => {
     const allTypesPoke = useSelector((state) => state?.newTypes)
+    const newImgPokes = useSelector((state) => state?.allImg)
     const dispatch = useDispatch();
     const [errors, setErros] = useState({});
     const [dataIsValid, setDataIsValid] = useState(false)
@@ -20,8 +21,12 @@ const CrearForm = () => {
         types: []
 
     })
-
+console.log(data);
     const handleChange = (event) => {
+        if(event.target.name === 'types') return setData({...data,
+            types:[...data.types, event.target.value]
+
+        })
         setData({
             ...data,
             [event.target.name]: event.target.value,
@@ -54,6 +59,10 @@ const CrearForm = () => {
         dispatch(allTypes());
     }, []);
 
+    useEffect(() => {
+        dispatch(newImagenes());
+    }, []);
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -70,9 +79,6 @@ const CrearForm = () => {
                 <label >Nombre</label>
                 <input type="text" name="name" value={data.name} onChange={handleChange} />
                 {errors.name && <p style={{ color: 'black', fontSize: '13px' }}>{errors.name}</p>}
-
-                <label >imagen</label>
-                <input type="text" name="image" value={data.image} onChange={handleChange} />
 
                 <label >vida</label>
                 <input type="text" name="hp" value={data.hp} onChange={handleChange} />
@@ -95,13 +101,19 @@ const CrearForm = () => {
                 {errors.weight && <p style={{ color: 'black', fontSize: '13px' }}>{errors.weight}</p>}
 
 
+                <label >imagen
+                <select onChange={handleChange}>
+                {newImgPokes.map(Image => <option name={Image.name} key={Image.key} value={Image.name}>{Image.name}</option>)}
+                </select>
+                </label>
+
 
                 <label>Tipos:
                     <select multiple
                         name="types"
                         value={data.types}
                         onChange={handleChange}>
-                        {allTypesPoke.map(elem => <option name={elem.name} key={elem.key} value={elem.name}>{elem.name}</option>)}
+                        {allTypesPoke.map(types => <option name={types.name} key={types.key} value={types.name}>{types.name}</option>)}
                     </select>
                 </label>
 
