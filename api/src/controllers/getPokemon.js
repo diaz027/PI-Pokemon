@@ -6,6 +6,7 @@ const URL = `https://pokeapi.co/api/v2/pokemon/?limit=120`
 
 const getPokemon = async () => {
     const pokemonDb = await Pokemon.findAll({ include: { model: Type } });
+    
     const newPokemon = pokemonDb.map((pokemon) => {
         return {
             id: pokemon.id,
@@ -16,7 +17,7 @@ const getPokemon = async () => {
             defense: pokemon.defense,
             height: pokemon.height,
             weight: pokemon.weight,
-            // types: pokemon.Type.map(type => type.type.name)
+            types: pokemon.Types.map(type => type.name)
         }
     })
 console.log(pokemonDb);
