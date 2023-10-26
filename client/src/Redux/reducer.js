@@ -1,10 +1,11 @@
-import { GET_ID, GET_NAME, GET_POKEMON, ORDER_A_Z } from "./actions-types"
+import { CREATE_POKEMON, GET_ID, GET_NAME, GET_POKEMON, ORDER_A_Z, TYPES } from "./actions-types"
 
 
 let initialState = {
     newPokes:[],//copia
     pokemones: [],//orginal
-    detailsPoke:[]
+    detailsPoke:[],
+    newTypes:[]
 }
 
 const reducer = (state = initialState, action) => {
@@ -15,8 +16,15 @@ const reducer = (state = initialState, action) => {
         case GET_NAME:
             return{...state, newPokes: action.payload,  pokemones: action.payload}
 
+        case CREATE_POKEMON:
+            return{...state, newPokes:[...state.newPokes, action.payload],  pokemones:[...state.pokemones, action.payload]}
+
         case GET_ID:
             return{...state, detailsPoke: action.payload}
+
+        case TYPES:
+            return {...state, newTypes: action.payload}
+        
 
         case ORDER_A_Z:
             if(action.payload === 'A') {

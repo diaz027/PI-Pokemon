@@ -1,7 +1,7 @@
 require('dotenv').config();
 const axios = require('axios')
 const { Pokemon, Type } = require('../db')
-const URL = `https://pokeapi.co/api/v2/pokemon`
+const URL = `https://pokeapi.co/api/v2/pokemon/?limit=120`
 
 
 const getPokemon = async () => {
@@ -16,11 +16,11 @@ const getPokemon = async () => {
             defense: pokemon.defense,
             height: pokemon.height,
             weight: pokemon.weight,
-            types: Pokemon.Type.map(element => element.dataValues.name)
+            // types: pokemon.Type.map(type => type.type.name)
         }
     })
-
-    const respose = await axios.get(`${URL}/?limit=50`)
+console.log(pokemonDb);
+    const respose = await axios.get(`${URL}`)
     const pokeResult = respose.data.results;
     const promises = pokeResult.map(async (pokemon) => {
         const pokemonResponse = await axios.get(pokemon.url);

@@ -14,8 +14,8 @@ const createPokemon = async(name, image, hp, attack, defense, height, weight, ty
   })
 
   types.map(async (temp) => { 
-    const firstType = await Type.findOne({ where: { name: temp} });
-      await response.addTypes(firstType);
+    const newTypes = await Type.findOne({ where: { name: temp} });
+      await response.addTypes(newTypes);
     });
     return response;
 }
