@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import Cards from "../../componentes/cards/cards";
-import { getPokemon, orderAlfa, orderAttack } from "../../Redux/actions";
+import { filterApiDb, getPokemon, orderAlfa, orderAttack } from "../../Redux/actions";
 
 
 //paginado
 const POKEMON_PER_PAGE = 12;
 
-const Home = () =>{
+const Home = () => {
     const allpokes = useSelector((state) => state?.pokemones)
     const dispatch = useDispatch();
-    
+
     const totalPokemon = allpokes?.length;
     const totalPage = Math.ceil(totalPokemon / POKEMON_PER_PAGE)
-    const  [currentPage, setCurrentPage] = useState(0)
-    
-    useEffect(() =>{
+    const [currentPage, setCurrentPage] = useState(0)
+
+    useEffect(() => {
         dispatch(getPokemon());
     }, [dispatch]);
 
@@ -23,11 +23,11 @@ const Home = () =>{
     const endPokes = startPokes + POKEMON_PER_PAGE;
     const pokeToDisplay = allpokes?.slice(startPokes, endPokes);
 
-    const nextHandler = () =>{
+    const nextHandler = () => {
         if (currentPage < totalPage - 1) {
             setCurrentPage(currentPage + 1)
         }
-    } 
+    }
 
     const prevHandler = () => {
         if (currentPage > 0) {
@@ -43,8 +43,13 @@ const Home = () =>{
         dispatch(orderAttack(event.target.value))
     }
 
-    
-    return(
+    const handlerDbApi = (event) => {
+        const result = event.target.value
+        dispatch(filterApiDb(result))
+    }
+
+
+    return (
         <div>
 
             <select onChange={handlerOrder}>
@@ -52,10 +57,17 @@ const Home = () =>{
                 <option value="Z">Z - A</option>
             </select>
 
-            <select onChange={handlerOrder}>
+            <select onChange={handlerOrderAttack}>
                 <option value="ataqueMin">ataque min</option>
                 <option value="ataqueMax">ataque max</option>
             </select>
+
+
+            <select onChange={handlerDbApi} >
+                <option value='api'>api</option>
+                <option value='db'>db</option>
+            </select>
+
 
             <Cards pokemones={pokeToDisplay} />
 

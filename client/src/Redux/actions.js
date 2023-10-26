@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { CREATE_POKEMON, GET_ID, GET_NAME, GET_POKEMON, IMAGEN, ORDER_ATAQUE, ORDER_A_Z, TYPES } from './actions-types'
+import { CREATE_POKEMON, FILTER_API_DB, GET_ID, GET_NAME, GET_POKEMON, IMAGEN, ORDER_ATAQUE, ORDER_A_Z, TYPES } from './actions-types'
 
 export const getPokemon = () =>{
     return async (dispatch) =>{
@@ -71,6 +71,11 @@ export const newImagenes = () => {
               payload: response.data,
         });
   }
+}
+
+
+export const filterApiDb = (value) => {
+    return{ type:FILTER_API_DB, payload:value}
 }
 
 
