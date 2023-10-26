@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import Cards from "../../componentes/cards/cards";
-import { getPokemon, orderAlfa } from "../../Redux/actions";
+import { getPokemon, orderAlfa, orderAttack } from "../../Redux/actions";
 
 
 //paginado
@@ -39,6 +39,10 @@ const Home = () =>{
         dispatch(orderAlfa(event.target.value));
     }
 
+    const handlerOrderAttack = (event) => {
+        dispatch(orderAttack(event.target.value))
+    }
+
     
     return(
         <div>
@@ -46,6 +50,11 @@ const Home = () =>{
             <select onChange={handlerOrder}>
                 <option value="A">A - Z</option>
                 <option value="Z">Z - A</option>
+            </select>
+
+            <select onChange={handlerOrder}>
+                <option value="ataqueMin">ataque min</option>
+                <option value="ataqueMax">ataque max</option>
             </select>
 
             <Cards pokemones={pokeToDisplay} />

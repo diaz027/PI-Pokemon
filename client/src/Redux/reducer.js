@@ -1,4 +1,4 @@
-import { CREATE_POKEMON, GET_ID, GET_NAME, GET_POKEMON, IMAGEN, ORDER_A_Z, TYPES } from "./actions-types"
+import { CREATE_POKEMON, GET_ID, GET_NAME, GET_POKEMON, IMAGEN, ORDER_ATAQUE, ORDER_A_Z, TYPES } from "./actions-types"
 
 
 let initialState = {
@@ -42,6 +42,24 @@ const reducer = (state = initialState, action) => {
             if(action.payload === 'Z') {
                 const allCopy = [...state.pokemones];
                 const result = allCopy.sort((a, b) => b.name.localeCompare(a.name));
+                return{
+                    ...state,
+                    pokemones: [...result]
+                };
+            }
+
+        case ORDER_ATAQUE:
+            if(action.payload === 'ataqueMin'){
+                const allCopy = [...state.pokemones];
+                const result = allCopy.sort((a, b) => a.attack - (b.attack));
+                return{
+                    ...state,
+                    pokemones: [...result]
+                };
+            }
+            if(action.payload === 'ataqueMax'){
+                const allCopy = [...state.pokemones];
+                const result = allCopy.sort((a, b) => b.attack - (a.attack));
                 return{
                     ...state,
                     pokemones: [...result]
