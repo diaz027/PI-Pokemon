@@ -1,8 +1,9 @@
 // Combate.js
-import React, { useState } from "react"; 
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { calcularDanio} from "../../componentes/batallas/batalla";
+import { calcularDanio } from "../../componentes/batallas/batalla";
 import { useSelector } from "react-redux";
+import style from './combate.module.css'
 
 
 const Combate = () => {
@@ -40,33 +41,57 @@ const Combate = () => {
 
 
   return (
-    <div >
-     <div>
-    <p>Pokemon 1: {pokemon1?.name}</p>
-    <img src={pokemon1?.image} alt={pokemon1?.name} />
-    <p>Pokemon 2: {pokemon2?.name}</p>
-    <img src={pokemon2?.image} alt={pokemon2?.name} />
-    {peleaEnCurso && (
-      <div>
-        <p>Ataque: {pokemon1?.attack}</p>
-        <p>Defensa: {pokemon1?.defense}</p>
-        <p>Vida: {pokemon1HP}</p>
-        <p>Ataque: {pokemon2?.attack}</p>
-        <p>Defensa: {pokemon2?.defense}</p>
-        <p>Vida: {pokemon2HP}</p>
+    <div className={style.combateContainer}>
+      <div className={style.poke1Container}>
+        <div className={style.poke1}>
+          <p>Pokemon 1: {pokemon1?.name}</p>
+          <img src={pokemon1?.image} alt={pokemon1?.name} />
+          <div className={style.lifeBar}>
+            <div className={style.lifeProgress} style={{ width: `${pokemon1HP}%` }}></div>
+          </div>
+          {peleaEnCurso && (
+            <div>
+              <p>Ataque: {pokemon1?.attack}</p>
+              <p>Defensa: {pokemon1?.defense}</p>
+              <p>Vida: {pokemon1HP}</p>
+            </div>
+          )}
+        </div>
       </div>
-    )}
-    {!peleaEnCurso && ganador && (
-      <div>
-        <p>Ganador: {ganador?.name}</p>
-        <img src={ganador?.image} alt={ganador?.name} />
+  
+      <div className={style.poke2Container}>
+        <div className={style.poke2}>
+          <p>Pokemon 2: {pokemon2?.name}</p>
+          <img src={pokemon2?.image} alt={pokemon2?.name} />
+          <div className={style.lifeBar}>
+            <div className={style.lifeProgress} style={{ width: `${pokemon2HP}%` }}></div>
+          </div>
+          {peleaEnCurso && (
+            <div>
+              <p>Ataque: {pokemon2?.attack}</p>
+              <p>Defensa: {pokemon2?.defense}</p>
+              <p>Vida: {pokemon2HP}</p>
+            </div>
+          )}
+        </div>
       </div>
-    )}
-  </div>
+      {!peleaEnCurso && ganador && (
+        <div>
+          <p>Ganador: {ganador?.name}</p>
+          <img src={ganador?.image} alt={ganador?.name} />
+        </div>
+      )}
       <button onClick={() => setPeleaEnCurso(true)}>Iniciar pelea</button>
       <button onClick={handleAttack}>Atacar</button>
     </div>
   );
-};
-
+} 
 export default Combate;
+
+
+{/* <div className={style.lifeBar}>
+  <div
+    className={style.lifeProgress}
+    style={{ width: `${pokemon1HP}%` }}
+  ></div>
+</div> */}

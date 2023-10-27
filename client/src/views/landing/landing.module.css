@@ -3,6 +3,7 @@
     background-image: url('../../../../pokemon.png');
     background-size: cover;
     height: 100vh;
+    margin: 0
 }
 
 h1 {

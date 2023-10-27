@@ -1,0 +1,40 @@
+/* combate.module.css */
+
+.poke1Container {
+    position: absolute;
+    top: 25px; /* Cambié 0,5 a 0.5 para que sea una coma decimal válida */
+    right: 10px;
+  }
+  
+  .poke2Container {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+  }
+  
+  /* Agregamos estilos para la barra de vida */
+  .life-bar {
+    width: 100px;
+    height: 20px;
+    border: 1px solid #000;
+    position: relative;
+    margin-top: 10px;
+  }
+  /* En tu archivo de estilos CSS */
+/* .life-bar {
+    width: 100px; /* Ancho de la barra de vida */
+    /* height: 20px; /* Alto de la barra de vida */
+    /* background-image: url('ruta/de/imagen.jpg'); /* Ruta de la imagen de fondo */
+    /* background-size: cover; /* Ajustar la imagen de fondo al tamaño del contenedor */
+    /* position: relative;
+    margin-top: 10px; */
+ 
+  
+  .life-progress {
+    height: 100%;
+    background-color: green;
+  }
+  /* .life-progress {
+    height: 100%;
+    background-color: green; /* Color de la barra de progreso */
+    /* transition: width 0.3s ease; /* Animación de transición de la anchura */
