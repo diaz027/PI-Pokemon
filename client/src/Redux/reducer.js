@@ -48,7 +48,7 @@ const reducer = (state = initialState, action) => {
         case TYPES_FILTER:
             const copyType = [...state.newPokes]
             const response = [...copyType.filter((poke) => {
-                return poke.types && poke.types.map(element => element.trim()).includes(action.payload)
+                return poke.types && poke.types.split(',').map(element => element.trim()).includes(action.payload)
             })]
             return {
                 ...state,

@@ -1,15 +1,15 @@
 const axios = require('axios')
-const { Pokemon, Type } = require('../db');
+const { Pokemon, Type, Image } = require('../db');
 
 const getPokemonById = async (idPokemon) => {
   //hacer un if con la info de la db
   if (idPokemon.toString().length > 5) {
-    const pokemonDb = [await Pokemon.findAll(idPokemon, { include: { model: Type } })]
+    const pokemonDb = [await Pokemon.findByPk(idPokemon, { include: [ { model: Type },{ model: Image }] })]
     const newPokemon = pokemonDb.map((pokemon) => {
       return {
         id: pokemon.id,
         name: pokemon.name,
-        image: pokemon.image,
+        image: pokemon.Images.map(img => img.image),
         hp: pokemon.hp,
         attack: pokemon.attack,
         defense: pokemon.defense,
@@ -20,7 +20,6 @@ const getPokemonById = async (idPokemon) => {
     })
     return newPokemon[0];
   }
-
   const getInfo = await axios.get(`https://pokeapi.co/api/v2/pokemon/${idPokemon}`)
   const apiInfo = getInfo.data;
   const pokemonFund = {
@@ -35,6 +34,7 @@ const getPokemonById = async (idPokemon) => {
     types: apiInfo.types.map(type => type.type.name)
 }
   return pokemonFund
+
 }
 
 module.exports = getPokemonById;
