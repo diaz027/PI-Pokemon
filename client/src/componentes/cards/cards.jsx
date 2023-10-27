@@ -18,7 +18,7 @@ const Cards = ({ pokemones, handlePokemonSelect }) => {
                         height={height}
                         weight={weight}
                         types={types}
-                        andlePokemonSelect={handlePokemonSelect} // Pasa la función para seleccionar el Pokémon
+                        handlePokemonSelect={handlePokemonSelect} // Pasa la función para seleccionar el Pokémon
                     />
                 )
             })

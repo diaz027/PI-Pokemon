@@ -1,4 +1,5 @@
 .body{
+    overflow: hidden;
     background-image: url('../../../../pokemon.png');
     background-size: cover;
     height: 100vh;
@@ -6,7 +7,4 @@
 
 h1 {
     margin: 0;
-}
-.landiping .nav {
-    background-color: transparent;
 }
