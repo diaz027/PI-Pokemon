@@ -34,15 +34,15 @@ const reducer = (state = initialState, action) => {
         //filtrados
         case FILTER_API_DB:
             console.log(action.payload);
-            let agua;
+            let filteredPokemons = [];
             if (action.payload === 'api') {
-                agua = state.pokemones.filter((poke) => poke.id.toString().length < 6)
+                filteredPokemons = state.newPokes.filter((poke) => poke.id.toString().length < 6)
             } else if (action.payload === 'db') {
-                agua = state.pokemones.filter((poke) => poke.id.toString().length > 6)
-            }
+                filteredPokemons = state.newPokes.filter((poke) => poke.id.toString().length > 6)
+            }  else if (action.payload === 'todos') { filteredPokemons = state.newPokes }
             return {
                 ...state,
-                pokemones: [...agua],
+                pokemones: [...filteredPokemons],
             }
 
         case TYPES_FILTER:

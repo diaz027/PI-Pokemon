@@ -76,8 +76,9 @@ const Home = () => {
 
 
             <select onChange={handlerDbApi} >
-                <option value='api'>api</option>
-                <option value='db'>db</option>
+            <option value="todos">API/BD</option>
+                <option value='api'>API</option>
+                <option value='db'>BD</option>
             </select>
 
             <select

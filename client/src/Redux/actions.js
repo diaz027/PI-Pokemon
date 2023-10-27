@@ -78,7 +78,7 @@ export const filterTypes = (name) => {
 
 
 export const filterApiDb = (value) => {
-    return{ type:FILTER_API_DB, payload:value}
+    return{ type:FILTER_API_DB, payload: value }
 }
 
 
