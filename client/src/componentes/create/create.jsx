@@ -79,38 +79,38 @@ const CrearForm = () => {
                     <div className={style.formGroup}>
                         <label >Nombre</label>
                         <input type="text" name="name" value={data.name} onChange={handleChange} />
-                        {errors.name && <p style={{ color: 'black', fontSize: '13px' }}>{errors.name}</p>}
+                        {errors.name && <p className={style.error}>{errors.name}</p>}
                     </div>
 
                     <div className={style.formGroup}>
                         <label >vida</label>
                         <input type="text" name="hp" value={data.hp} onChange={handleChange} />
-                        {errors.hp && <p style={{ color: 'black', fontSize: '13px' }}>{errors.hp}</p>}
+                        {errors.hp && <p className={style.error}>{errors.hp}</p>}
                     </div>
 
                     <div className={style.formGroup}>
                         <label >ataque</label>
                         <input type="text" name="attack" value={data.attack} onChange={handleChange} />
-                        {errors.attack && <p style={{ color: 'black', fontSize: '13px' }}>{errors.attack}</p>}
+                        {errors.attack && <p className={style.error}>{errors.attack}</p>}
                     </div>
 
                     <div className={style.formGroup}>
                         <label >defensa</label>
                         <input type="text" name="defense" value={data.defense} onChange={handleChange} />
-                        {errors.defense && <p style={{ color: 'black', fontSize: '13px' }}>{errors.defense}</p>}
+                        {errors.defense && <p className={style.error}>{errors.defense}</p>}
                     </div>
 
                     <div className={style.formGroup}>
                         <label >altura</label>
                         <input type="text" name="height" value={data.height} onChange={handleChange} />
-                        {errors.height && <p style={{ color: 'black', fontSize: '13px' }}>{errors.height}</p>}
+                        {errors.height && <p className={style.error}>{errors.height}</p>}
                     </div>
 
 
                     <div className={style.formGroup}>
                         <label >peso</label>
                         <input type="text" name="weight" value={data.weight} onChange={handleChange} />
-                        {errors.weight && <p style={{ color: 'black', fontSize: '13px' }}>{errors.weight}</p>}
+                        {errors.weight && <p className={style.error}>{errors.weight}</p>}
                     </div>
                 </div>
 
@@ -122,10 +122,9 @@ const CrearForm = () => {
                         </select>
                         {data.image && (
                             <img
-                                src={data.image} // Utiliza la URL almacenada en la base de datos
+                                src={data.image} 
                                 alt="Imagen seleccionada"
-                                width="100"
-                                height="100"
+                                className={style.selectedImage}
                             />
                         )}
 
@@ -140,7 +139,7 @@ const CrearForm = () => {
                         </label>
                     </div>
 
-                    <button disabled={!dataIsValid}>CREAR</button>
+                    <button className={style.button} disabled={!dataIsValid}>CREAR</button>
                 </div>
             </form >
         </div >

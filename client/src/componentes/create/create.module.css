@@ -1,15 +1,45 @@
 .body {
     background-color: aqua;
     height: 100vh;
-    display: flex; /* Utiliza un contenedor flex para la disposición de dos columnas */
-    justify-content: space-between; /* Espacio entre las dos columnas */
-    padding: 20px; /* Añade espaciado alrededor del formulario */
-}
-
-.column {
-    width: 48%; /* Define el ancho de cada columna */
-}
-
-.form-group {
-    margin-bottom: 20px; /* Espaciado entre grupos de etiquetas e inputs */
-}
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .column {
+    width: 48%;
+  }
+  
+  .formGroup {
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  .error {
+    color: red; /* Estilo para los mensajes de error */
+    font-size: 13px;
+    display: inline;
+    margin-left: 5px;
+  }
+  
+  .selectedImage {
+    width: 200px; /* Tamaño de la imagen seleccionada */
+    height: 200px;
+    position: absolute;
+    right: 500px; /* Mover la imagen a la derecha del contenedor */
+    top: 350px; /* Mover la imagen hacia arriba */
+  }
+  
+  .button {
+    background-color: #ff4500;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #ff6600;
+  }
+  
