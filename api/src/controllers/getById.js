@@ -20,6 +20,7 @@ const getPokemonById = async (idPokemon) => {
     })
     return newPokemon[0];
   }
+  
   const getInfo = await axios.get(`https://pokeapi.co/api/v2/pokemon/${idPokemon}`)
   const apiInfo = getInfo.data;
   const pokemonFund = {

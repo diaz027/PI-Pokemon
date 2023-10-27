@@ -59,7 +59,7 @@ const Home = () => {
     }
     useEffect(() => {
         dispatch(allTypes());
-    }, []);
+    }, [dispatch]);
 
     return (
         <div className={style.home}>
