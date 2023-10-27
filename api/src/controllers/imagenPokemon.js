@@ -8,13 +8,15 @@ const getImg = async () => {
     console.log(apiInfo);
 
     for (const dataImg of result) {
-        const url = dataImg.url;//se utiliza para acceder al nombre de cada tipo dentro del bucle.
+        const pokemonInfo = await axios.get(dataImg.url)// info detalla del pokemon
+        const imageUrl = pokemonInfo.data.sprites.front_default// Obtengo la URL de la imagen del Pokémon
 
-        const respose = await Image.findAll({ where: { url: url } });
 
-        if (!respose) {
+        const response = await Image.findAll({ where: { image: imageUrl } });
+
+        if (response.length === 0) {
             // Si no existe, crea un nuevo registro en la base de datos
-            await Image.create({ url: url });
+            await Image.create({ image:imageUrl});
         }
     }
 

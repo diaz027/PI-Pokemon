@@ -59,7 +59,7 @@ console.log(data);
 
     useEffect(() => {
         dispatch(newImagenes());
-    }, []);
+    }, [dispatch]);
 
 
     const handleSubmit = (event) => {
@@ -100,7 +100,7 @@ console.log(data);
 
 
                 <label >imagen
-                <select onChange={handleChange}>
+                <select name="image" value={data.image} onChange={handleChange}>
                 {newImgPokes.map(Image => <option name={Image.name} key={Image.key} value={Image.name}>{Image.name}</option>)}
                 </select>
                 </label>

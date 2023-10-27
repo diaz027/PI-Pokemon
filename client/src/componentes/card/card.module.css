@@ -1,8 +1,10 @@
 .card{
-    background-color: rgb(1, 248, 13);
+    /* background-color: rgb(1, 248, 13); */
+    background-image: url('../../../assest/1_3272.webp');
     width: 200px;
     height: 300px;
     border-radius: 20px;
+    color: white;
 }
 
 .img{

@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getById } from "../../Redux/actions";
+import style from './detail.module.css'
 
 const Details = () => {
     const { id } = useParams();
@@ -13,7 +14,7 @@ const Details = () => {
     }, [id])
 
     return (
-        <div>
+        <div className={style.detail}>
             <h2>nombre:{allPokemon?.name}</h2>
             <h2>vida:{allPokemon?.hp}</h2>
             <h2>ataque:{allPokemon?.attack}</h2>

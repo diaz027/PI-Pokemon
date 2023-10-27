@@ -3,7 +3,7 @@ import Card from "../card/card";
 import style from './cards.module.css'
 
 const Cards = ({ pokemones }) => {
-    
+    console.log(pokemones);
     return (
         <div className={style.cards}>
             {pokemones.map(({ id, name, image, hp, attack, defense, height, weight, types }) => {

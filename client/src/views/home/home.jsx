@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import Cards from "../../componentes/cards/cards";
 import { allTypes, filterApiDb, filterTypes, getPokemon, orderAlfa, orderAttack } from "../../Redux/actions";
+import style from './home.module.css'
 
 
 //paginado
@@ -61,7 +62,7 @@ const Home = () => {
     }, []);
 
     return (
-        <div>
+        <div className={style.home}>
 
             <select onChange={handlerOrder}>
                 <option value="A">A - Z</option>
