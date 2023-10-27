@@ -8,9 +8,10 @@ function Card({ id, name, image, types}) {
         <div className={style.card}>
             <Link to={`/detail/${id}`}>
                 <h2>{name}</h2>
-            </Link>
+                <img className={style.img} src={image} />
             <p>Tipos: {types}</p>
-            <img className={style.img} src={image} />
+            </Link>
+            
         </div>
     )
 }
