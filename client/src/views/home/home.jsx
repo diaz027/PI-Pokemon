@@ -21,6 +21,11 @@ const Home = () => {
     const totalPage = Math.ceil(totalPokemon / POKEMON_PER_PAGE)
     const [currentPage, setCurrentPage] = useState(0)
 
+    //combate
+    const [selectedPokemon1, setSelectedPokemon1] = useState(null);
+    const [selectedPokemon2, setSelectedPokemon2] = useState(null);
+    const navigate = useNavigate();
+
     useEffect(() => {
         dispatch(getPokemon());
     }, [dispatch]);
@@ -40,34 +45,31 @@ const Home = () => {
             setCurrentPage(currentPage - 1)
         }
     }
-    //combate
-    const [selectedPokemon1, setSelectedPokemon1] = useState(null);
-    const [selectedPokemon2, setSelectedPokemon2] = useState(null);
-    const navigate = useNavigate();
+
 
     //seleccion de pokemones para combate
     const handlePokemonSelect = (pokemon) => {
         if (!selectedPokemon1) {
-          setSelectedPokemon1(pokemon);
+            setSelectedPokemon1(pokemon);
         } else if (!selectedPokemon2) {
-          setSelectedPokemon2(pokemon);
+            setSelectedPokemon2(pokemon);
         }
-      }
+    }
 
-      //inicio de batalla
-      const startBattle = () => {
+    //inicio de batalla
+    const startBattle = () => {
         if (selectedPokemon1 && selectedPokemon2) {
             // Calculo el daño y determino el ganador
             const danio1 = calcularDanio(selectedPokemon1, selectedPokemon2);
             const danio2 = calcularDanio(selectedPokemon2, selectedPokemon1);
-            const ganador = determinarGanador(danio1, danio2); 
-          navigate(`/combate?pokemon1=${selectedPokemon1.id}&pokemon2=${selectedPokemon2.id}`);
+            const ganador = determinarGanador(danio1, danio2);
+            navigate(`/combate?pokemon1=${selectedPokemon1.id}&pokemon2=${selectedPokemon2.id}`);
         } else {
-          alert('Selecciona dos Pokémon para iniciar la batalla.');
+            alert('Selecciona dos Pokémon para iniciar la batalla.');
         }
-      };
+    };
 
-    
+
 
 
     //ordenamientos
@@ -98,31 +100,35 @@ const Home = () => {
 
     return (
         <div className={style.home}>
+            <div className={style.filters}>
 
-            <select onChange={handlerOrder}>
-                <option value="A">A - Z</option>
-                <option value="Z">Z - A</option>
-            </select>
+                <select onChange={handlerOrder}>
+                    <option value="A">A - Z</option>
+                    <option value="Z">Z - A</option>
+                </select>
 
-            <select onChange={handlerOrderAttack}>
-                <option value="ataqueMin">ataque min</option>
-                <option value="ataqueMax">ataque max</option>
-            </select>
-
-
-            <select onChange={handlerDbApi} >
-            <option value="todos">API/BD</option>
-                <option value='api'>API</option>
-                <option value='db'>BD</option>
-            </select>
-
-            <select
-                onChange={handlerFilter}>
-                {allTYPE.map(types => <option name={types.name} key={types.key} value={types.name}>{types.name}</option>)}
-            </select>
+                <select onChange={handlerOrderAttack}>
+                    <option value="ataqueMin">ataque min</option>
+                    <option value="ataqueMax">ataque max</option>
+                </select>
 
 
-            <Cards pokemones={pokeToDisplay} />
+                <select onChange={handlerDbApi} >
+                    <option value="todos">API/BD</option>
+                    <option value='api'>API</option>
+                    <option value='db'>BD</option>
+                </select>
+
+                <select
+                    onChange={handlerFilter}>
+                    {allTYPE.map(types => <option name={types.name} key={types.key} value={types.name}>{types.name}</option>)}
+                </select>
+            </div>
+
+            
+                <button className={style.button} onClick={startBattle}>Iniciar batalla</button>
+
+            <Cards pokemones={pokeToDisplay} handlePokemonSelect={handlePokemonSelect} />
 
             <div>
                 <button onClick={prevHandler} disabled={currentPage === 0}>Prev</button>
@@ -130,16 +136,6 @@ const Home = () => {
                 <button onClick={nextHandler} disabled={currentPage === totalPage - 1}>Next</button>
             </div>
 
-
-            <div>
-                {pokeToDisplay.map((pokemon) => (
-                    <div key={pokemon.id}>
-                    <h3>{pokemon.name}</h3>
-                    <button onClick={() => handlePokemonSelect(pokemon)}>Seleccionar</button>
-                    </div>
-                ))}
-                <button onClick={startBattle}>Iniciar batalla</button>
-            </div>
 
         </div>
     )

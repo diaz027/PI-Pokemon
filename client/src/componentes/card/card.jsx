@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import style from './card.module.css'
 
-function Card({ id, name, image, types}) {
+function Card({ id, name, image, types, handlePokemonSelect }) {
 
  
     return (
@@ -11,6 +11,7 @@ function Card({ id, name, image, types}) {
                 <img className={style.img} src={image} />
             <p>Tipos: {types}</p>
             </Link>
+            <button onClick={() => handlePokemonSelect({ id, name, image, types })}>Seleccionar</button>
             
         </div>
     )

@@ -2,8 +2,7 @@ import React from 'react';
 import Card from "../card/card";
 import style from './cards.module.css'
 
-const Cards = ({ pokemones }) => {
-    console.log(pokemones);
+const Cards = ({ pokemones, handlePokemonSelect }) => {
     return (
         <div className={style.cards}>
             {pokemones.map(({ id, name, image, hp, attack, defense, height, weight, types }) => {
@@ -19,6 +18,7 @@ const Cards = ({ pokemones }) => {
                         height={height}
                         weight={weight}
                         types={types}
+                        andlePokemonSelect={handlePokemonSelect} // Pasa la función para seleccionar el Pokémon
                     />
                 )
             })

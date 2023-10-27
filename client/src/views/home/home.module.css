@@ -1,5 +1,36 @@
-.home{
+.home {
     text-align: center;
     background-color: aqua;
     font-family: 'Paytone One', sans-serif;
+}
+
+.style.filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.style.filters select {
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.style.pokemonSelection {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px;
+}
+.button {
+    text-align: center;
+    background-color: #ff4500;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #ff6600;
 }
