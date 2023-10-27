@@ -3,12 +3,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import Cards from "../../componentes/cards/cards";
 import { allTypes, filterApiDb, filterTypes, getPokemon, orderAlfa, orderAttack } from "../../Redux/actions";
 import style from './home.module.css'
+import { useNavigate } from "react-router-dom";
+import { calcularDanio, determinarGanador } from "../../componentes/batallas/batalla";
 
 
 //paginado
 const POKEMON_PER_PAGE = 12;
 
 const Home = () => {
+    //paginado
     const allTYPE = useSelector((state) => state?.newTypes)
     const allpokes = useSelector((state) => state?.pokemones)
     const [types, setTypes] = useState("");
@@ -37,7 +40,37 @@ const Home = () => {
             setCurrentPage(currentPage - 1)
         }
     }
+    //combate
+    const [selectedPokemon1, setSelectedPokemon1] = useState(null);
+    const [selectedPokemon2, setSelectedPokemon2] = useState(null);
+    const navigate = useNavigate();
 
+    //seleccion de pokemones para combate
+    const handlePokemonSelect = (pokemon) => {
+        if (!selectedPokemon1) {
+          setSelectedPokemon1(pokemon);
+        } else if (!selectedPokemon2) {
+          setSelectedPokemon2(pokemon);
+        }
+      }
+
+      //inicio de batalla
+      const startBattle = () => {
+        if (selectedPokemon1 && selectedPokemon2) {
+            // Calculo el daño y determino el ganador
+            const danio1 = calcularDanio(selectedPokemon1, selectedPokemon2);
+            const danio2 = calcularDanio(selectedPokemon2, selectedPokemon1);
+            const ganador = determinarGanador(danio1, danio2); 
+          navigate(`/combate?pokemon1=${selectedPokemon1.id}&pokemon2=${selectedPokemon2.id}`);
+        } else {
+          alert('Selecciona dos Pokémon para iniciar la batalla.');
+        }
+      };
+
+    
+
+
+    //ordenamientos
     const handlerOrder = (event) => {
         dispatch(orderAlfa(event.target.value));
     }
@@ -46,6 +79,8 @@ const Home = () => {
         dispatch(orderAttack(event.target.value))
     }
 
+
+    //filtros
     const handlerDbApi = (event) => {
         const result = event.target.value
         console.log(result);
@@ -93,6 +128,17 @@ const Home = () => {
                 <button onClick={prevHandler} disabled={currentPage === 0}>Prev</button>
                 <span> pagina: {currentPage + 1} de {totalPage}</span>
                 <button onClick={nextHandler} disabled={currentPage === totalPage - 1}>Next</button>
+            </div>
+
+
+            <div>
+                {pokeToDisplay.map((pokemon) => (
+                    <div key={pokemon.id}>
+                    <h3>{pokemon.name}</h3>
+                    <button onClick={() => handlePokemonSelect(pokemon)}>Seleccionar</button>
+                    </div>
+                ))}
+                <button onClick={startBattle}>Iniciar batalla</button>
             </div>
 
         </div>
