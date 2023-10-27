@@ -12,7 +12,7 @@ function Init() {
     
     <div className={style.body}>
       <h1>bienvenidos a Pokedex</h1>
-      <button onClick={navigateHandler}>HOME</button>
+      <button className={style.boton} onClick={navigateHandler}>HOME</button>
     </div>
   );
 }

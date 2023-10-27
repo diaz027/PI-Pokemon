@@ -3,9 +3,18 @@
     background-image: url('../../../../pokemon.png');
     background-size: cover;
     height: 100vh;
-    margin: 0
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1 {
     margin: 0;
+    display: flex;
+    justify-content: center;
+}
+.boton{
+    margin-top: 20px;
+    background-color: rgb(72, 243, 5);
 }
