@@ -16,8 +16,6 @@ const Combate = () => {
 
   // // Calcula el daño y determina el ganador
   if (pokemon1 && pokemon2) {
-    console.log(pokemon1);
-  console.log(pokemon2);
     const danio1 = calcularDanio(pokemon1, pokemon2);
     const danio2 = calcularDanio(pokemon2, pokemon1);
     const ganador = determinarGanador(danio1, danio2);
@@ -35,9 +33,9 @@ const Combate = () => {
       <p>Pokemon 2: {pokemon2?.name}</p>
       <img src={pokemon2?.image}/>
       <p>Ganador: {ganadorPokemon?.name}</p>
-      {ganadorPokemon && (
+      
         <img src={ganadorPokemon?.image}/>
-      )}
+      
     </div>
   );
 };

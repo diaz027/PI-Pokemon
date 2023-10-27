@@ -1,5 +1,15 @@
 .body {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+    background-color: aqua;
+    height: 100vh;
+    display: flex; /* Utiliza un contenedor flex para la disposición de dos columnas */
+    justify-content: space-between; /* Espacio entre las dos columnas */
+    padding: 20px; /* Añade espaciado alrededor del formulario */
+}
+
+.column {
+    width: 48%; /* Define el ancho de cada columna */
+}
+
+.form-group {
+    margin-bottom: 20px; /* Espaciado entre grupos de etiquetas e inputs */
 }

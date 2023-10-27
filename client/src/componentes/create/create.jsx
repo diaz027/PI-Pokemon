@@ -74,37 +74,53 @@ const CrearForm = () => {
     return (
         <div className={style.body}>
             <form onSubmit={handleSubmit}>
+                <div className={style.column}>
 
-                <label >Nombre</label>
-                <input type="text" name="name" value={data.name} onChange={handleChange} />
-                {errors.name && <p style={{ color: 'black', fontSize: '13px' }}>{errors.name}</p>}
+                    <div className={style.formGroup}>
+                        <label >Nombre</label>
+                        <input type="text" name="name" value={data.name} onChange={handleChange} />
+                        {errors.name && <p style={{ color: 'black', fontSize: '13px' }}>{errors.name}</p>}
+                    </div>
 
-                <label >vida</label>
-                <input type="text" name="hp" value={data.hp} onChange={handleChange} />
-                {errors.hp && <p style={{ color: 'black', fontSize: '13px' }}>{errors.hp}</p>}
+                    <div className={style.formGroup}>
+                        <label >vida</label>
+                        <input type="text" name="hp" value={data.hp} onChange={handleChange} />
+                        {errors.hp && <p style={{ color: 'black', fontSize: '13px' }}>{errors.hp}</p>}
+                    </div>
 
-                <label >ataque</label>
-                <input type="text" name="attack" value={data.attack} onChange={handleChange} />
-                {errors.attack && <p style={{ color: 'black', fontSize: '13px' }}>{errors.attack}</p>}
+                    <div className={style.formGroup}>
+                        <label >ataque</label>
+                        <input type="text" name="attack" value={data.attack} onChange={handleChange} />
+                        {errors.attack && <p style={{ color: 'black', fontSize: '13px' }}>{errors.attack}</p>}
+                    </div>
 
-                <label >defensa</label>
-                <input type="text" name="defense" value={data.defense} onChange={handleChange} />
-                {errors.defense && <p style={{ color: 'black', fontSize: '13px' }}>{errors.defense}</p>}
+                    <div className={style.formGroup}>
+                        <label >defensa</label>
+                        <input type="text" name="defense" value={data.defense} onChange={handleChange} />
+                        {errors.defense && <p style={{ color: 'black', fontSize: '13px' }}>{errors.defense}</p>}
+                    </div>
 
-                <label >altura</label>
-                <input type="text" name="height" value={data.height} onChange={handleChange} />
-                {errors.height && <p style={{ color: 'black', fontSize: '13px' }}>{errors.height}</p>}
-
-                <label >peso</label>
-                <input type="text" name="weight" value={data.weight} onChange={handleChange} />
-                {errors.weight && <p style={{ color: 'black', fontSize: '13px' }}>{errors.weight}</p>}
+                    <div className={style.formGroup}>
+                        <label >altura</label>
+                        <input type="text" name="height" value={data.height} onChange={handleChange} />
+                        {errors.height && <p style={{ color: 'black', fontSize: '13px' }}>{errors.height}</p>}
+                    </div>
 
 
-                <label >imagen
-                    <select name="image" value={data.image} onChange={handleChange}>
-                        {newImgPokes.map((image) => <option key={image.id} value={image.image}>{image.image}</option>)}
-                    </select>
-                    {data.image && (
+                    <div className={style.formGroup}>
+                        <label >peso</label>
+                        <input type="text" name="weight" value={data.weight} onChange={handleChange} />
+                        {errors.weight && <p style={{ color: 'black', fontSize: '13px' }}>{errors.weight}</p>}
+                    </div>
+                </div>
+
+
+                <div className={style.column}>
+                        <label >imagen</label>
+                        <select name="image" value={data.image} onChange={handleChange}>
+                            {newImgPokes.map((image) => <option key={image.id} value={image.image}>{image.image}</option>)}
+                        </select>
+                        {data.image && (
                             <img
                                 src={data.image} // Utiliza la URL almacenada en la base de datos
                                 alt="Imagen seleccionada"
@@ -112,22 +128,22 @@ const CrearForm = () => {
                                 height="100"
                             />
                         )}
-                </label>
 
+                    <div className={style.formGroup}>
+                        <label>Tipos:
+                            <select multiple
+                                name="types"
+                                value={data.types}
+                                onChange={handleChange}>
+                                {allTypesPoke.map(types => <option name={types.name} key={types.key} value={types.name}>{types.name}</option>)}
+                            </select>
+                        </label>
+                    </div>
 
-                <label>Tipos:
-                    <select multiple
-                        name="types"
-                        value={data.types}
-                        onChange={handleChange}>
-                        {allTypesPoke.map(types => <option name={types.name} key={types.key} value={types.name}>{types.name}</option>)}
-                    </select>
-                </label>
-
-                <button disabled={!dataIsValid}>CREAR</button>
-
-            </form>
-        </div>
+                    <button disabled={!dataIsValid}>CREAR</button>
+                </div>
+            </form >
+        </div >
     )
 }
 
