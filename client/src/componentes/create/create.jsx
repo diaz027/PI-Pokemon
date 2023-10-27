@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createPokemon,  newImagenes } from "../../Redux/actions";
+import { createPokemon, newImagenes } from "../../Redux/actions";
 import validacion from "./validacion";
 import style from "./create.module.css"
 
@@ -21,10 +21,11 @@ const CrearForm = () => {
         types: []
 
     })
-console.log(data);
+    console.log(data);
     const handleChange = (event) => {
-        if(event.target.name === 'types') return setData({...data,
-            types:[...data.types, event.target.value]
+        if (event.target.name === 'types') return setData({
+            ...data,
+            types: [...data.types, event.target.value]
 
         })
         setData({
@@ -55,7 +56,7 @@ console.log(data);
         setDataIsValid(validateData());
     }, [errors]);
 
-    
+
 
     useEffect(() => {
         dispatch(newImagenes());
@@ -100,9 +101,17 @@ console.log(data);
 
 
                 <label >imagen
-                <select name="image" value={data.image} onChange={handleChange}>
-                {newImgPokes.map(Image => <option name={Image.name} key={Image.key} value={Image.name}>{Image.name}</option>)}
-                </select>
+                    <select name="image" value={data.image} onChange={handleChange}>
+                        {newImgPokes.map((image) => <option key={image.id} value={image.image}>{image.image}</option>)}
+                    </select>
+                    {data.image && (
+                            <img
+                                src={data.image} // Utiliza la URL almacenada en la base de datos
+                                alt="Imagen seleccionada"
+                                width="100"
+                                height="100"
+                            />
+                        )}
                 </label>
 
 

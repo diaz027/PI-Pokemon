@@ -15,11 +15,16 @@ const NavBar = () => {
         navigate('/form')
     }
 
+    const onClikcHandlerBatalla = () => {
+        navigate('/combate')
+    }
+
     return (
         <div className={style.nav}>
             {location.pathname !== '/home' && location.pathname !== '/' && <button onClick={navigateHandler} >Home</button>}
             {location.pathname === '/home' && <SearchBar />}
             {location.pathname === '/home' && <button onClick={onClikcHandler}>CREATE</button>}
+            {location.pathname === '/home' && <button onClick={onClikcHandlerBatalla}>combate</button>}
         </div>
     )
 }
