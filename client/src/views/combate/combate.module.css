@@ -1,5 +1,9 @@
 /* combate.module.css */
-
+.body{
+  background-image: url('../../../assest/43e78957ab636946acf0498862b67c11.jpg');
+  background-size: cover;
+  height: 94vh;
+}
 .poke1Container {
     position: absolute;
     top: 25px; /* Cambié 0,5 a 0.5 para que sea una coma decimal válida */
