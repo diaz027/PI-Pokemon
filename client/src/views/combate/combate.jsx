@@ -25,15 +25,17 @@ const Combate = () => {
     // Calcula el daño de los ataques y actualiza la vida de los Pokémon
     const danio1 = calcularDanio(pokemon1, pokemon2);
     const danio2 = calcularDanio(pokemon2, pokemon1);
-    setPokemon1HP((prevHP) => prevHP - danio2);
-    setPokemon2HP((prevHP) => prevHP - danio1);
-
+    const nuevoPokemon1HP = Math.max(pokemon1HP - danio2, 0);
+    const nuevoPokemon2HP = Math.max(pokemon2HP - danio1, 0);
+    setPokemon1HP(nuevoPokemon1HP);
+    setPokemon2HP(nuevoPokemon2HP);
+  
     // Verifica si uno de los Pokémon se queda sin vida
-    if (pokemon1HP <= 0 || pokemon2HP <= 0) {
+    if (nuevoPokemon1HP <= 0 || nuevoPokemon2HP <= 0) {
       setPeleaEnCurso(false);
-      if (pokemon1HP <= 0) {
+      if (nuevoPokemon1HP <= 0) {
         setGanador(pokemon2);
-      } else if (pokemon2HP <= 0) {
+      } else if (nuevoPokemon2HP <= 0) {
         setGanador(pokemon1);
       }
     }

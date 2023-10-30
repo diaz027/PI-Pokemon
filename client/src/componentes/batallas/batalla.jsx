@@ -1,9 +1,7 @@
-// battle.js
 export const calcularDanio = (pokemonAtacante, pokemonDefensor) => {
   const danoBase = 10; 
-  // calculo el daño de attack - la defensa
-  const dano = (pokemonAtacante.attack - pokemonDefensor.defense) + danoBase;
+  // Calcul0 el daño de attack - la defensa, asegurándose de que el mínimo sea 0
+  const dano = Math.max(pokemonAtacante.attack - pokemonDefensor.defense, 0) + danoBase;
 
-  // Asegur0 de que el daño mínimo sea 0
-  return Math.max(0, dano);
+  return dano;
 };
