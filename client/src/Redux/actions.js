@@ -19,6 +19,7 @@ export const getPokeName = (name) => {
             payload: response.data
         })
         } catch (error) {
+            console.log(error)
             alert(`No se encontró ningún perro con el nombre "${name}"`);
         }
     }

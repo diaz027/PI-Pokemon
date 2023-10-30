@@ -1,8 +1,14 @@
 const axios = require('axios');
+const { Op } = require ('sequelize')
 const { Pokemon } = require('../db');
 
 const getName = async (name) => {
-    const pokemonDb = await Pokemon.findAll({ where: { name: name } });
+    const pokemonDb = await Pokemon.findAll({ where: { name:{[Op.iLike]: `%${name}%`} } });
+    
+    if(pokemonDb.length > 0) {
+        return pokemonDb
+    } 
+    
     const pokeapi = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
     const pokemon = pokeapi.data
     const pokemonFund = {
@@ -16,7 +22,9 @@ const getName = async (name) => {
         weight: pokemon.weight,
         types: pokemon.types.map(type => type.type.name)
     }
-    return pokemonDb.concat(pokemonFund);
+    console.log(pokemonFund);
+    return pokemonFund
+   
 }
 
 module.exports = getName;

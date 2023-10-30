@@ -15,7 +15,11 @@ const reducer = (state = initialState, action) => {
             return { ...state, newPokes: action.payload, pokemones: action.payload }
 
         case GET_NAME:
-            return { ...state, newPokes: action.payload, pokemones: action.payload }
+            if(action.payload.hasOwnProperty('name')){ 
+                return { ...state, newPokes: [action.payload], pokemones: [action.payload] }
+            } else {
+                return { ...state, newPokes: [...action.payload], pokemones: [...action.payload] }
+            }
 
         case CREATE_POKEMON:
             return { ...state, newPokes: [...state.newPokes, action.payload], pokemones: [...state.pokemones, action.payload] }
