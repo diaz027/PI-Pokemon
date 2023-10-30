@@ -16,8 +16,7 @@
   .life-bar {
     width: 100px;
     height: 20px;
-    background-image: url('../../../assest/1_3272.webp');
-    background-size: cover;
+    background-color: gray;
     position: relative;
     margin-top: 10px;
   }

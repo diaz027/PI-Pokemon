@@ -16,8 +16,8 @@ const Combate = () => {
   const pokemon2 = allpokes.find((pokemon) => pokemon.id === pokemon2Id);
   const [peleaEnCurso, setPeleaEnCurso] = useState(false);
   const [ganador, setGanador] = useState(null);
-  const [pokemon1HP, setPokemon1HP] = useState(100); // defino la vida inicial de poke 1
-  const [pokemon2HP, setPokemon2HP] = useState(100); // Defino la vida inicial de Poke 2
+  const [pokemon1HP, setPokemon1HP] = useState(150); // defino la vida inicial de poke 1
+  const [pokemon2HP, setPokemon2HP] = useState(150); // Defino la vida inicial de Poke 2
 
 
 
@@ -46,19 +46,17 @@ const Combate = () => {
         <div className={style.poke1}>
           <p>Pokemon 1: {pokemon1?.name}</p>
           <img src={pokemon1?.image} alt={pokemon1?.name} />
-          <div className={style.lifeBar}>
+          {peleaEnCurso && (
+            <div className={style.lifeBar}>
             <div
               className={style.lifeProgress}
-              style={{ width: `${pokemon1HP}%` }} // Usar pokemon1HP en lugar de pokemon2HP
+              style={{ width: `${(pokemon1HP / 150) * 100}%` }}
             ></div>
           </div>
-          {peleaEnCurso && (
-            <div>
-              <p>Ataque: {pokemon1?.attack}</p>
-              <p>Defensa: {pokemon1?.defense}</p>
-              <p>Vida: {pokemon1HP}</p>
-            </div>
           )}
+          <p>Ataque: {pokemon1?.attack}</p>
+          <p>Defensa: {pokemon1?.defense}</p>
+          <p>Vida: {pokemon1HP}</p>
         </div>
       </div>
 
@@ -66,23 +64,21 @@ const Combate = () => {
         <div className={style.poke2}>
           <p>Pokemon 2: {pokemon2?.name}</p>
           <img src={pokemon2?.image} alt={pokemon2?.name} />
-          <div className={style.lifeBar}>
+          {peleaEnCurso && (
+            <div className={style.lifeBar}>
             <div
               className={style.lifeProgress}
-              style={{ width: `${pokemon2HP}%` }} // Usar pokemon2HP en lugar de pokemon1HP
+              style={{ width: `${(pokemon2HP / 150) * 100}%` }}
             ></div>
           </div>
-          {peleaEnCurso && (
-            <div>
-              <p>Ataque: {pokemon2?.attack}</p>
-              <p>Defensa: {pokemon2?.defense}</p>
-              <p>Vida: {pokemon2HP}</p>
-            </div>
           )}
+          <p>Ataque: {pokemon2?.attack}</p>
+          <p>Defensa: {pokemon2?.defense}</p>
+          <p>Vida: {pokemon2HP}</p>
         </div>
       </div>
-      {
-        !peleaEnCurso && ganador && (
+
+      {!peleaEnCurso && ganador && (
           <div>
             <p>Ganador: {ganador?.name}</p>
             <img src={ganador?.image} alt={ganador?.name} />

@@ -35,6 +35,7 @@ export const getById = (id) => {
 }
 
 export const createPokemon = (data) =>{
+    console.log(createPokemon)
     return async (dispatch) => {
         try {
             const response = await axios.post(`http://localhost:3001/pokemons`, data)

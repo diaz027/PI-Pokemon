@@ -21,7 +21,6 @@ const CrearForm = () => {
         types: []
 
     })
-    console.log(data);
     const handleChange = (event) => {
         if (event.target.name === 'types') return setData({
             ...data,
