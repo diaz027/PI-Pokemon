@@ -51,5 +51,16 @@
     border-radius: 50%; /* Hace que el borde sea circular */
     box-shadow: 0 0 20px #00FF00; /* Sombra verde */
   }
+  .attackAnimation {
+    animation: attack 0.5s linear;
+  }
   
+  @keyframes attack {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100px); /* Puedes ajustar la distancia de la animación según tu diseño */
+    }
+  }
 

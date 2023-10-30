@@ -29,7 +29,7 @@ const Combate = () => {
     const nuevoPokemon2HP = Math.max(pokemon2HP - danio1, 0);
     setPokemon1HP(nuevoPokemon1HP);
     setPokemon2HP(nuevoPokemon2HP);
-  
+
     // Verifica si uno de los Pokémon se queda sin vida
     if (nuevoPokemon1HP <= 0 || nuevoPokemon2HP <= 0) {
       setPeleaEnCurso(false);
@@ -44,50 +44,51 @@ const Combate = () => {
 
   return (
     <div className={style.body}>
-    <div className={style.combateContainer}>
-      <div className={style.poke1Container}>
-        <div className={style.poke1}>
-          <p>Pokemon 1: {pokemon1?.name}</p>
-          <img src={pokemon1?.image} alt={pokemon1?.name} />
-          {peleaEnCurso && (
-            <div className={style.lifeBar}>
-              <div
-                className={style.lifeProgress}
-                style={{ width: `${(pokemon1HP / 150) * 100}%` }}
-              ></div>
-            </div>
-          )}
-          <p>Ataque: {pokemon1?.attack}</p>
-          <p>Defensa: {pokemon1?.defense}</p>
+      <div className={style.combateContainer}>
+        <div className={`${style.poke1Container} ${peleaEnCurso ? style.attackAnimation : ""}`}>
+          <div className={style.poke1}>
+            <p>Pokemon 1: {pokemon1?.name}</p>
+            <img src={pokemon1?.image} alt={pokemon1?.name} />
+            {peleaEnCurso && (
+              <div className={style.lifeBar}>
+                <div
+                  className={style.lifeProgress}
+                  style={{ width: `${(pokemon1HP / 150) * 100}%` }}
+                ></div>
+              </div>
+            )}
+            <p>Ataque: {pokemon1?.attack}</p>
+            <p>Defensa: {pokemon1?.defense}</p>
+          </div>
         </div>
-      </div>
 
-      <div className={style.poke2Container}>
-        <div className={style.poke2}>
-          <p>Pokemon 2: {pokemon2?.name}</p>
-          <img src={pokemon2?.image} alt={pokemon2?.name} />
-          {peleaEnCurso && (
-            <div className={style.lifeBar}>
-              <div
-                className={style.lifeProgress}
-                style={{ width: `${(pokemon2HP / 150) * 100}%` }}
-              ></div>
-            </div>
-          )}
-          <p>Ataque: {pokemon2?.attack}</p>
-          <p>Defensa: {pokemon2?.defense}</p>
+        <div className={style.poke2Container}>
+          <div className={style.poke2}>
+            <p>Pokemon 2: {pokemon2?.name}</p>
+            <img src={pokemon2?.image} alt={pokemon2?.name} />
+            {peleaEnCurso && (
+              <div className={style.lifeBar}>
+                <div
+                  className={style.lifeProgress}
+                  style={{ width: `${(pokemon2HP / 150) * 100}%` }}
+                ></div>
+              </div>
+            )}
+            <p>Ataque: {pokemon2?.attack}</p>
+            <p>Defensa: {pokemon2?.defense}</p>
+          </div>
         </div>
-      </div>
 
-      {!peleaEnCurso && ganador && (
-        <div className={style.ganadorContainer}>
-          <img className={style.ganadorImage} src={ganador?.image} alt={ganador?.name} />
-          <p>Ganador: {ganador?.name}</p>
-        </div>
-      )}
-      <button onClick={() => setPeleaEnCurso(true)}>Iniciar pelea</button>
-      <button onClick={handleAttack}>Atacar</button>
-    </div >
+        {!peleaEnCurso && ganador && (
+          <div className={style.ganadorContainer}>
+            <img className={style.ganadorImage} src={ganador?.image} alt={ganador?.name} />
+            <p>Ganador: {ganador?.name}</p>
+          </div>
+        )}
+
+        <button onClick={() => setPeleaEnCurso(true)}>Iniciar pelea</button>
+        <button onClick={handleAttack}>Atacar</button>
+      </div>
     </div>
   );
 }
