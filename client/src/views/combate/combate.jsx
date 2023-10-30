@@ -47,7 +47,10 @@ const Combate = () => {
           <p>Pokemon 1: {pokemon1?.name}</p>
           <img src={pokemon1?.image} alt={pokemon1?.name} />
           <div className={style.lifeBar}>
-            <div className={style.lifeProgress} style={{ width: `${pokemon1HP}%` }}></div>
+            <div
+              className={style.lifeProgress}
+              style={{ width: `${pokemon1HP}%` }} // Usar pokemon1HP en lugar de pokemon2HP
+            ></div>
           </div>
           {peleaEnCurso && (
             <div>
@@ -58,13 +61,16 @@ const Combate = () => {
           )}
         </div>
       </div>
-  
+
       <div className={style.poke2Container}>
         <div className={style.poke2}>
           <p>Pokemon 2: {pokemon2?.name}</p>
           <img src={pokemon2?.image} alt={pokemon2?.name} />
           <div className={style.lifeBar}>
-            <div className={style.lifeProgress} style={{ width: `${pokemon2HP}%` }}></div>
+            <div
+              className={style.lifeProgress}
+              style={{ width: `${pokemon2HP}%` }} // Usar pokemon2HP en lugar de pokemon1HP
+            ></div>
           </div>
           {peleaEnCurso && (
             <div>
@@ -75,23 +81,17 @@ const Combate = () => {
           )}
         </div>
       </div>
-      {!peleaEnCurso && ganador && (
-        <div>
-          <p>Ganador: {ganador?.name}</p>
-          <img src={ganador?.image} alt={ganador?.name} />
-        </div>
-      )}
+      {
+        !peleaEnCurso && ganador && (
+          <div>
+            <p>Ganador: {ganador?.name}</p>
+            <img src={ganador?.image} alt={ganador?.name} />
+          </div>
+        )
+      }
       <button onClick={() => setPeleaEnCurso(true)}>Iniciar pelea</button>
       <button onClick={handleAttack}>Atacar</button>
-    </div>
+    </div >
   );
-} 
+}
 export default Combate;
-
-
-{/* <div className={style.lifeBar}>
-  <div
-    className={style.lifeProgress}
-    style={{ width: `${pokemon1HP}%` }}
-  ></div>
-</div> */}
