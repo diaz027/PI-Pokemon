@@ -4,7 +4,6 @@ import Cards from "../../componentes/cards/cards";
 import { allTypes, filterApiDb, filterTypes, getPokemon, orderAlfa, orderAttack } from "../../Redux/actions";
 import style from './home.module.css'
 import { useNavigate } from "react-router-dom";
-import { calcularDanio, determinarGanador } from "../../componentes/batallas/batalla";
 
 
 //paginado
@@ -59,10 +58,6 @@ const Home = () => {
     //inicio de batalla
     const startBattle = () => {
         if (selectedPokemon1 && selectedPokemon2) {
-            // Calculo el daño y determino el ganador
-            const danio1 = calcularDanio(selectedPokemon1, selectedPokemon2);
-            const danio2 = calcularDanio(selectedPokemon2, selectedPokemon1);
-            const ganador = determinarGanador(danio1, danio2);
             navigate(`/combate?pokemon1=${selectedPokemon1.id}&pokemon2=${selectedPokemon2.id}`);
         } else {
             alert('Selecciona dos Pokémon para iniciar la batalla.');

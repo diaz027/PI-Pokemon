@@ -13,7 +13,7 @@
   }
   
   /* Agregamos estilos para la barra de vida */
-  .life-bar {
+  .lifeBar {
     width: 100px;
     height: 20px;
     background-color: gray;
@@ -21,9 +21,29 @@
     margin-top: 10px;
   }
 
-  .life-progress {
+  .lifeProgress {
     height: 100%;
     background-color: green;
     transition: width 0.3s ease;
   }
+
+  .ganadorContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 255, 0, 0.2); /* Fondo verde tenue */
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .ganadorImage {
+    border: 5px solid #00FF00; /* Borde verde brillante */
+    border-radius: 50%; /* Hace que el borde sea circular */
+    box-shadow: 0 0 20px #00FF00; /* Sombra verde */
+  }
+  
 

@@ -23,8 +23,7 @@
   }
   
   .selectedImage {
-    width: 200px; /* Tamaño de la imagen seleccionada */
-    height: 200px;
+    transform: scale(2);
     position: absolute;
     right: 500px; /* Mover la imagen a la derecha del contenedor */
     top: 350px; /* Mover la imagen hacia arriba */
