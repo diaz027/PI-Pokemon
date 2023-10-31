@@ -11,3 +11,9 @@
      height: 150px;
      width: 150px;
  }
+
+.boton{
+    background-color: #ff4500;
+    color: white;
+    border-radius: 5px;
+}

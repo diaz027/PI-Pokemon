@@ -11,7 +11,7 @@ function Card({ id, name, image, types, handlePokemonSelect }) {
                 <img className={style.img} src={image} />
             <p>Tipos: {types}</p>
             </Link>
-            <button onClick={() => handlePokemonSelect({ id, name, image, types })}>Seleccionar</button>
+            <button className={style.boton} onClick={() => handlePokemonSelect({ id, name, image, types })}>Seleccionar</button>
             
         </div>
     )
