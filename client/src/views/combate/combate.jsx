@@ -12,12 +12,16 @@ const Combate = () => {
   const pokemon1Id = searchParams.get('pokemon1');
   const pokemon2Id = searchParams.get('pokemon2');
   const allpokes = useSelector((state) => state?.pokemones);
+
   const pokemon1 = allpokes.find((pokemon) => pokemon.id === pokemon1Id);
   const pokemon2 = allpokes.find((pokemon) => pokemon.id === pokemon2Id);
   const [peleaEnCurso, setPeleaEnCurso] = useState(false);
+
   const [ganador, setGanador] = useState(null);
   const [pokemon1HP, setPokemon1HP] = useState(150); // defino la vida inicial de poke 1
   const [pokemon2HP, setPokemon2HP] = useState(150); // Defino la vida inicial de Poke 2
+  const [explosion, setExplosion] = useState(false); // Estado para el efecto de explosión
+
 
 
 
@@ -29,6 +33,13 @@ const Combate = () => {
     const nuevoPokemon2HP = Math.max(pokemon2HP - danio1, 0);
     setPokemon1HP(nuevoPokemon1HP);
     setPokemon2HP(nuevoPokemon2HP);
+
+    setPeleaEnCurso(true);
+
+    // Espera 2 segundos para desactivar el efecto de explosión
+    setTimeout(() => {
+      setExplosion(false);
+    }, 2000);
 
     // Verifica si uno de los Pokémon se queda sin vida
     if (nuevoPokemon1HP <= 0 || nuevoPokemon2HP <= 0) {
@@ -62,10 +73,10 @@ const Combate = () => {
           </div>
         </div>
 
-        <div className={style.poke2Container}>
+        <div className={`${style.poke2Container} ${peleaEnCurso ? style.attackAnimation : ""}`}>
           <div className={style.poke2}>
             <p>Pokemon 2: {pokemon2?.name}</p>
-            <img src={pokemon2?.image} alt={pokemon2?.name} />
+            <img src={pokemon2?.image } alt={pokemon2?.name} className={peleaEnCurso ? (explosion ? style.explosion : "") : ""}/>
             {peleaEnCurso && (
               <div className={style.lifeBar}>
                 <div

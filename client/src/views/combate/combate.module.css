@@ -1,66 +1,102 @@
-/* combate.module.css */
-.body{
+.body {
   background-image: url('../../../assest/43e78957ab636946acf0498862b67c11.jpg');
   background-size: cover;
   height: 100vh;
 }
+
 .poke1Container {
-    position: absolute;
-    top: 25px; /* Cambié 0,5 a 0.5 para que sea una coma decimal válida */
-    right: 10px;
-  }
-  
-  .poke2Container {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-  }
-  
-  /* Agregamos estilos para la barra de vida */
-  .lifeBar {
-    width: 100px;
-    height: 20px;
-    background-color: gray;
-    position: relative;
-    border-radius: 10px;
-    margin-top: 10px;
-  }
+  position: absolute;
+  top: 25px;
+  right: 10px;
+  animation: move1 0.5s ease-in;
+}
 
-  .lifeProgress {
-    height: 100%;
-    background-color: green;
-    border-radius: 10px;
-    transition: width 0.3s ease;
-  }
+.poke2Container {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  animation: move2 0.5s ease-in;
+}
 
-  .ganadorContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 255, 0, 0.2); /* Fondo verde tenue */
-    position: absolute;
-    top: 40px;
-    left: 0;
-    width: 100%;
-    height: 100%;
+/* Agregamos estilos para la barra de vida */
+.lifeBar {
+  width: 100px;
+  height: 20px;
+  background-color: gray;
+  position: relative;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.lifeProgress {
+  height: 100%;
+  background-color: green;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.ganadorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 255, 0, 0.2);
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ganadorImage {
+  border: 5px solid #00FF00;
+  border-radius: 50%;
+  box-shadow: 0 0 20px #00FF00;
+}
+
+.attackAnimation {
+  animation: attack 0.5s linear;
+}
+
+@keyframes attack {
+  0% {
+    transform: translateX(0);
   }
-  
-  .ganadorImage {
-    border: 5px solid #00FF00; /* Borde verde brillante */
-    border-radius: 50%; /* Hace que el borde sea circular */
-    box-shadow: 0 0 20px #00FF00; /* Sombra verde */
+  100% {
+    transform: translateX(100px);
   }
-  .attackAnimation {
-    animation: attack 0.5s linear;
+}
+
+@keyframes move1 {
+  0% {
+    transform: translate(0, 0);
   }
-  
-  @keyframes attack {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(100px); /* Puedes ajustar la distancia de la animación según tu diseño */
-    }
+  100% {
+    transform: translate(-100px, 50px);
   }
+}
+
+@keyframes move2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(100px, -50px);
+  }
+}
+
+.explosion {
+  animation: explosion 2s ease-in;
+}
+
+@keyframes explosion {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
 
