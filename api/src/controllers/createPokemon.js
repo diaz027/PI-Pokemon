@@ -8,8 +8,7 @@ const createPokemon = async(name, image, hp, attack, defense, height, weight, ty
     attack,
     defense,
     height,
-    weight,
-    types
+    weight
   })
 
   types.map(async (temp) => { 

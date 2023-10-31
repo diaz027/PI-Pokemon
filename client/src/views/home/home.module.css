@@ -21,7 +21,7 @@
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-gap: 20px;
 }
-.button {
+.buttonIniciarBatalla {
     text-align: center;
     background-color: #ff4500;
     color: white;
@@ -31,6 +31,15 @@
     cursor: pointer;
   }
   
-  .button:hover {
+  .buttonIniciarBatalla:hover {
     background-color: #ff6600;
-}
+  }
+  
+  /* Estilo para los elementos select en los filtros */
+  .selectFiltro {
+    margin-right: 10px;
+    background-color: rgb(34, 34, 36); /* Cambia el color a amarillo o cualquier otro de tu elección */
+    border: 1px solid #fa0202; /* Agrega un borde para mayor contraste */
+    border-radius: 5px;
+    color: #ffffff; 
+  }

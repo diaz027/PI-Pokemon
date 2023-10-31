@@ -37,7 +37,6 @@ const reducer = (state = initialState, action) => {
 
         //filtrados
         case FILTER_API_DB:
-            console.log(action.payload);
             let filteredPokemons = [];
             if (action.payload === 'api') {
                 filteredPokemons = state.newPokes.filter((poke) => poke.id.toString().length < 6)
