@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { calcularDanio } from "../../componentes/batallas/batalla";
 import { useSelector } from "react-redux";
@@ -29,7 +29,7 @@ const Combate = () => {
 
   const handleAttack = () => {
     // Calcula el daño de los ataques y actualiza la vida de los Pokémon
-    if (!peleaEnCurso) {
+    if (peleaEnCurso) {
       const danio1 = calcularDanio(pokemon1, pokemon2);
       const danio2 = calcularDanio(pokemon2, pokemon1);
       const nuevoPokemon1HP = Math.max(pokemon1HP - danio2, 0);
@@ -38,12 +38,12 @@ const Combate = () => {
       setPokemon1HP(nuevoPokemon1HP);
       setPokemon2HP(nuevoPokemon2HP);
 
-      setPeleaEnCurso(true);
+      // setPeleaEnCurso(true);
 
-      // Espera 2 segundos para desactivar el efecto de explosión
-      setTimeout(() => {
-        setExplosion(false);
-      }, 2000);
+      // // Espera 2 segundos para desactivar el efecto de explosión
+      // setTimeout(() => {
+      //   setExplosion(false);
+      // }, 2000);
 
       // Verifica si uno de los Pokémon se queda sin vida
       if (nuevoPokemon1HP <= 0 || nuevoPokemon2HP <= 0) {
@@ -60,13 +60,22 @@ const Combate = () => {
     }
   };
   const iniciarPelea = () => {
+    console.log(iniciarPelea);
     if (!peleaEnCurso) {
       setPokemon1HP(150);
       setPokemon2HP(150);
       // Finalmente, marca que la pelea está en curso
       setPeleaEnCurso(true);
+      console.log(setPeleaEnCurso);
     }
   };
+
+  useEffect(() => {
+    if (!pokemon1 || !pokemon2) {
+      // Manejar la situación cuando no se encuentran los Pokémon
+      // Puedes redirigir o mostrar un mensaje de error.
+    }
+  }, [pokemon1, pokemon2]);
 
 
   return (
@@ -113,27 +122,10 @@ const Combate = () => {
           </div>
         )}
 
-        <button onClick={iniciarPelea}>Iniciar pelea</button>
         <button onClick={handleAttack}>Atacar</button>
+        <button onClick={iniciarPelea}>Iniciar pelea</button>
       </div>
     </div>
   );
 }
 export default Combate;
-
-
-// else {
-//   // Calcula los puntajes basados en la vida restante
-//   const puntajePokemon1 = nuevoPokemon1HP;
-//   const puntajePokemon2 = nuevoPokemon2HP;
-
-//   // Determina al ganador basado en los puntajes
-//   if (puntajePokemon1 > puntajePokemon2) {
-//     setGanador(pokemon1);
-//   } else if (puntajePokemon2 > puntajePokemon1) {
-//     setGanador(pokemon2);
-//   } else {
-//     // En caso de empate, puedes manejarlo como desees
-//     setGanador("Empate");
-//   }
-// }
