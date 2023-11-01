@@ -1,9 +1,11 @@
+/* Estilo para el cuerpo de la página */
 .body {
   background-image: url('../../../assest/43e78957ab636946acf0498862b67c11.jpg');
   background-size: cover;
   height: 100vh;
 }
 
+/* Estilo para el contenedor de Pokémon 1 */
 .poke1Container {
   position: absolute;
   top: 25px;
@@ -11,6 +13,7 @@
   animation: move1 0.5s ease-in;
 }
 
+/* Estilo para el contenedor de Pokémon 2 */
 .poke2Container {
   position: absolute;
   bottom: 10px;
@@ -18,7 +21,7 @@
   animation: move2 0.5s ease-in;
 }
 
-/* Agregamos estilos para la barra de vida */
+/* Estilo para la barra de vida */
 .lifeBar {
   width: 100px;
   height: 20px;
@@ -35,6 +38,7 @@
   transition: width 0.3s ease;
 }
 
+/* Estilo para el contenedor de ganador */
 .ganadorContainer {
   display: flex;
   flex-direction: column;
@@ -48,12 +52,14 @@
   height: 100%;
 }
 
+/* Estilo para la imagen del ganador */
 .ganadorImage {
   border: 5px solid #00FF00;
   border-radius: 50%;
   box-shadow: 0 0 20px #00FF00;
 }
 
+/* Estilo para la animación de ataque */
 .attackAnimation {
   animation: attack 0.5s linear;
 }
@@ -85,8 +91,17 @@
   }
 }
 
+/* Estilo para la animación de explosión */
 .explosion {
   animation: explosion 2s ease-in;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: explosion 2s ease-in forwards;
 }
 
 @keyframes explosion {
@@ -95,7 +110,7 @@
     opacity: 1;
   }
   100% {
-    transform: scale(0);
+    transform: scale(2);
     opacity: 0;
   }
 }

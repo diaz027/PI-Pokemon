@@ -38,13 +38,6 @@ const Combate = () => {
       setPokemon1HP(nuevoPokemon1HP);
       setPokemon2HP(nuevoPokemon2HP);
 
-      // setPeleaEnCurso(true);
-
-      // // Espera 2 segundos para desactivar el efecto de explosión
-      // setTimeout(() => {
-      //   setExplosion(false);
-      // }, 2000);
-
       // Verifica si uno de los Pokémon se queda sin vida
       if (nuevoPokemon1HP <= 0 || nuevoPokemon2HP <= 0) {
         setPeleaEnCurso(false);
@@ -56,15 +49,13 @@ const Combate = () => {
           // Ambos Pokémon se quedaron sin vida al mismo tiempo, puedes manejarlo como desees
           setGanador("Empate");
         }
-      }
+       }
     }
   };
   const iniciarPelea = () => {
-    console.log(iniciarPelea);
     if (!peleaEnCurso) {
       setPokemon1HP(150);
       setPokemon2HP(150);
-      // Finalmente, marca que la pelea está en curso
       setPeleaEnCurso(true);
       console.log(setPeleaEnCurso);
     }
@@ -81,7 +72,7 @@ const Combate = () => {
   return (
     <div className={style.body}>
       <div className={style.combateContainer}>
-        <div className={`${style.poke1Container} ${peleaEnCurso ? style.attackAnimation : ""}`}>
+        <div className={`${style.poke1Container} `}>
           <div className={style.poke1}>
             <p>Pokemon 1: {pokemon1?.name}</p>
             <img src={pokemon1?.image} alt={pokemon1?.name} />
@@ -98,10 +89,10 @@ const Combate = () => {
           </div>
         </div>
 
-        <div className={`${style.poke2Container} ${peleaEnCurso ? style.attackAnimation : ""}`}>
+        <div className={`${style.poke2Container} `}>
           <div className={style.poke2}>
             <p>Pokemon 2: {pokemon2?.name}</p>
-            <img src={pokemon2?.image} alt={pokemon2?.name} className={peleaEnCurso ? (explosion ? style.explosion : "") : ""} />
+            <img src={pokemon2?.image} alt={pokemon2?.name} />
             {peleaEnCurso && (
               <div className={style.lifeBar}>
                 <div
