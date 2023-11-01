@@ -73,7 +73,7 @@ const Combate = () => {
         <div className={`${style.poke1Container} `}>
           <div className={style.poke1}>
             <p>Pokemon 1: {pokemon1?.name}</p>
-            <img src={pokemon1?.image} alt={pokemon1?.name} />
+            <img src={pokemon1?.image} alt={pokemon1?.name}  className={showExplosion ? style.attackAnimation : ''} />
             {showExplosion && <span className={style.explosion}>💥</span>}
             {peleaEnCurso && (
               <div className={style.lifeBar}>
@@ -91,7 +91,7 @@ const Combate = () => {
         <div className={`${style.poke2Container} `}>
           <div className={style.poke2}>
             <p>Pokemon 2: {pokemon2?.name}</p>
-            <img src={pokemon2?.image} alt={pokemon2?.name}/>
+            <img src={pokemon2?.image} alt={pokemon2?.name} className={showExplosion ? style.attackAnimation : ''}/>
             {showExplosion && <span className={style.explosion}>💥</span>}
             {peleaEnCurso && (
               <div className={style.lifeBar}>
@@ -108,7 +108,7 @@ const Combate = () => {
 
         {!peleaEnCurso && ganador && (
           <div className={style.ganadorContainer}>
-            <img className={style.ganadorImage} src={ganador?.image} alt={ganador?.name} />
+            <img className={style.ganadorImage} src={ganador?.image} alt={ganador?.name}  />
             <p>Ganador: {ganador?.name}</p>
           </div>
         )}

@@ -1,45 +1,45 @@
 .home {
-    text-align: center;
-    background-color: aqua;
-    font-family: 'Paytone One', sans-serif;
+  text-align: center;
+  background-color: aqua;
+  font-family: 'Paytone One', sans-serif;
 }
 
 .style.filters {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
 }
 
 .style.filters select {
-    margin-right: 10px;
-    padding: 5px;
+  margin-right: 10px;
+  padding: 5px;
 }
 
 .style.pokemonSelection {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 20px;
 }
+
 .buttonIniciarBatalla {
-    text-align: center;
-    background-color: #ff4500;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .buttonIniciarBatalla:hover {
-    background-color: #ff6600;
-  }
-  
-  /* Estilo para los elementos select en los filtros */
-  .selectFiltro {
-    margin-right: 10px;
-    background-color: rgb(34, 34, 36); /* Cambia el color a amarillo o cualquier otro de tu elección */
-    border: 1px solid #fa0202; /* Agrega un borde para mayor contraste */
-    border-radius: 5px;
-    color: #ffffff; 
-  }
+  text-align: center;
+  background-color: rgb(34, 34, 36);
+  border: 1px solid #fa0202;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 5px 20px;
+  font-size: 18px;
+}
+
+
+/* Estilo para los elementos select en los filtros */
+.selectFiltro {
+  margin-right: 10px;
+  background-color: rgb(34, 34, 36);
+  /* Cambia el color a amarillo o cualquier otro de tu elección */
+  border: 1px solid #fa0202;
+  /* Agrega un borde para mayor contraste */
+  border-radius: 5px;
+  color: #ffffff;
+}

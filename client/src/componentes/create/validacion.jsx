@@ -5,6 +5,9 @@ const validacion = (data) => {
         errors.name = 'Debe contener solo letras y no exceder los 25 caracteres';
     }
 
+    if(!data.attack > 150){
+        errors.attack = 'el ataque no puede ser mayor a 150'
+    }
     if (!/^\d{1,4}$/.test(data.attack)) {
         errors.attack = 'El ataque debe ser un número de hasta 4 dígitos';
     }
