@@ -1,6 +1,8 @@
 .home {
   text-align: center;
   background-color: aqua;
+  background-size: cover;
+  min-height: 150vh;
   font-family: 'Paytone One', sans-serif;
 }
 

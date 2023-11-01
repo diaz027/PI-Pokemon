@@ -14,7 +14,7 @@ const getName = async (name) => {
           defense: pokemon.defense,
           height: pokemon.height,
           weight: pokemon.weight,
-          types: pokemon.Types.map(type => type.name)
+          types: pokemon.Types.map(type => type.name).join(', ')
         }
       })
     
@@ -33,7 +33,7 @@ const getName = async (name) => {
         defense: pokemon.stats[2]["base_stat"],
         height: pokemon.height,
         weight: pokemon.weight,
-        types: pokemon.types.map(type => type.type.name)
+        types: pokemon.types.map(type => type.type.name).join(', ')
     }
     console.log(pokemonFund);
     return pokemonFund

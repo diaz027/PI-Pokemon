@@ -21,7 +21,7 @@ const Details = () => {
             <h2>defensa:{allPokemon?.defense}</h2>
             <h2>altura:{allPokemon?.height}</h2>
             <h2 >peso:{allPokemon?.weight}</h2>
-            <h2>tipo:{allPokemon?.types}</h2>
+            <h2>tipo:{allPokemon?.types && allPokemon?.types.join(', ')}</h2>
             <img src={allPokemon.image}/>
         </div>
     )
