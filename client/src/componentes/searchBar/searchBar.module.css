@@ -1,14 +1,26 @@
 .boton {
-    margin-right: 5px;
+    margin-right: 15px;
     background-color: rgb(34, 34, 36);
     border: 1px solid #fa0202;
     border-radius: 5px;
     color: #ffffff;
+    font-size: 18px;
+    padding: 5px 10px;
 }
-
+.boton2 {
+    margin-right: 15px;
+    background-color: rgb(34, 34, 36);
+    border: 1px solid #fa0202;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 18px;
+    padding: 5px 10px;
+    margin-top: 3px;
+}
 .label{
     background-color: rgb(34, 34, 36);
     border: 1px solid #fa0202;
     border-radius: 5px;
     color: #ffffff;
+    padding: 5px 10px;
 }

@@ -17,4 +17,5 @@ h1 {
 .boton{
     margin-top: 20px;
     background-color: rgb(72, 243, 5);
+    border-radius: 5px;
 }

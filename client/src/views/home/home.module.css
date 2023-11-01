@@ -30,6 +30,7 @@
   color: #ffffff;
   padding: 5px 20px;
   font-size: 18px;
+  margin-top: 5px;
 }
 
 
@@ -42,4 +43,5 @@
   /* Agrega un borde para mayor contraste */
   border-radius: 5px;
   color: #ffffff;
+  margin-top: 5px;
 }

@@ -25,8 +25,8 @@ const SearchBar = () => {
     return (
         <div>
             <input className={style.label} type="text" onChange={handleName} value={name}/>
-            <button className={style.boton} onClick={handleOnclick}>buscar</button>
-            <button className={style.boton} onClick={reset}>reset</button>
+            <button className={style.boton} onClick={handleOnclick}>🕵️</button>
+            <button className={style.boton2} onClick={reset}>🗑️</button>
         </div>
     )
 }
