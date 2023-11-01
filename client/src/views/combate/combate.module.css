@@ -61,15 +61,15 @@
 
 /* Estilo para la animación de ataque */
 .attackAnimation {
-  animation: attack 0.5s linear;
+  animation: attack 0.5s vertical;
 }
 
 @keyframes attack {
   0% {
-    transform: translateX(0);
+    transform: translateY(0);
   }
   100% {
-    transform: translateX(100px);
+    transform: translateY(100px); /* Ajusta la cantidad de desplazamiento vertical según tus necesidades */
   }
 }
 
