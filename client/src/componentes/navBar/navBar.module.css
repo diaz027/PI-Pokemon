@@ -1,8 +1,21 @@
-/* Estilo de la navbar que no se aplicará a la página landiping */
+/* Estilo de la navbar que no se aplicará a la página landing */
 .nav {
     background-color: rgb(0, 71, 6);
     display: flex;
-    justify-content: center;/* Centra horizontalmente */
-    align-items: center;/* Alinea elementos verticalmente en el centro */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: flex-start; /* Alinea elementos verticalmente en la parte superior */
     padding: 10px;
+}
+
+.boton {
+    margin-right: 10px;
+    background-color: rgb(34, 34, 36);
+    border: 1px solid #fa0202;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+/* Estilo específico para el botón "CREATE" */
+.createButton {
+    margin-top: 3px; /* Ajusta la cantidad de espacio para bajar el botón */
 }
