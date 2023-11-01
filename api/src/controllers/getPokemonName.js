@@ -1,12 +1,25 @@
 const axios = require('axios');
 const { Op } = require ('sequelize')
-const { Pokemon } = require('../db');
+const { Pokemon, Type, Image } = require('../db');
 
 const getName = async (name) => {
-    const pokemonDb = await Pokemon.findAll({ where: { name:{[Op.iLike]: `%${name}%`} } });
+    const pokemonDb = await Pokemon.findAll({ where: { name:{[Op.iLike]: `%${name}%`} }, include: [Type, Image] });
+    const newPokemon = pokemonDb.map((pokemon) => {
+        return {
+          id: pokemon.id,
+          name: pokemon.name,
+          image: pokemon.Images.map(img => img.image),
+          hp: pokemon.hp,
+          attack: pokemon.attack,
+          defense: pokemon.defense,
+          height: pokemon.height,
+          weight: pokemon.weight,
+          types: pokemon.Types.map(type => type.name)
+        }
+      })
     
-    if(pokemonDb.length > 0) {
-        return pokemonDb
+    if(newPokemon.length > 0) {
+        return newPokemon
     } 
     
     const pokeapi = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
