@@ -5,7 +5,6 @@ const getImg = async () => {
     const apiInfo = await axios.get(`https://pokeapi.co/api/v2/pokemon/`);
     const result = apiInfo.data.results;
     
-    console.log(apiInfo);
 
     for (const dataImg of result) {
         const pokemonInfo = await axios.get(dataImg.url)// info detalla del pokemon
