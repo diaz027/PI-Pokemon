@@ -22,9 +22,6 @@ const Combate = () => {
   const [ganador, setGanador] = useState(null);
   const [pokemon1HP, setPokemon1HP] = useState(150); // defino la vida inicial de poke 1
   const [pokemon2HP, setPokemon2HP] = useState(150); // Defino la vida inicial de Poke 2
-  const [explosion, setExplosion] = useState(false); // Estado para el efecto de explosión
-
-
 
 
   const handleAttack = () => {
@@ -37,6 +34,7 @@ const Combate = () => {
 
       setPokemon1HP(nuevoPokemon1HP);
       setPokemon2HP(nuevoPokemon2HP);
+
 
       // Verifica si uno de los Pokémon se queda sin vida
       if (nuevoPokemon1HP <= 0 || nuevoPokemon2HP <= 0) {
@@ -57,14 +55,11 @@ const Combate = () => {
       setPokemon1HP(150);
       setPokemon2HP(150);
       setPeleaEnCurso(true);
-      console.log(setPeleaEnCurso);
     }
   };
 
   useEffect(() => {
     if (!pokemon1 || !pokemon2) {
-      // Manejar la situación cuando no se encuentran los Pokémon
-      // Puedes redirigir o mostrar un mensaje de error.
     }
   }, [pokemon1, pokemon2]);
 
@@ -92,7 +87,7 @@ const Combate = () => {
         <div className={`${style.poke2Container} `}>
           <div className={style.poke2}>
             <p>Pokemon 2: {pokemon2?.name}</p>
-            <img src={pokemon2?.image} alt={pokemon2?.name} />
+            <img src={pokemon2?.image} alt={pokemon2?.name}/>
             {peleaEnCurso && (
               <div className={style.lifeBar}>
                 <div
