@@ -25,7 +25,9 @@
 }
 
 .buttonIniciarBatalla {
-  text-align: center;
+  position: relative;
+  top: -79px;
+  left: 220px;
   background-color: rgb(34, 34, 36);
   border: 1px solid #fa0202;
   border-radius: 5px;
