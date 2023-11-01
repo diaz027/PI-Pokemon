@@ -121,7 +121,7 @@ const Home = () => {
             </div>
 
             
-                <button className={style.buttonIniciarBatalla} onClick={startBattle}>Iniciar batalla</button>
+                <button className={style.buttonIniciarBatalla} onClick={startBattle}>⚔️</button>
 
             <Cards pokemones={pokeToDisplay} handlePokemonSelect={handlePokemonSelect} />
 

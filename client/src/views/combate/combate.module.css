@@ -93,7 +93,9 @@
 
 /* Estilo para la animación de explosión */
 .explosion {
-  animation: explosion 2s ease-in;
+  font-size: 2em; /* Tamaño del emoji */
+  animation: explosion 1s ease-in;
+  position: absolute;
 }
 
 .centered {
@@ -111,7 +113,9 @@
   }
   100% {
     transform: scale(2);
-    opacity: 0;
+    
+   
+opacity: 0;
   }
 }
 

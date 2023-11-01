@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { calcularDanio } from "../../componentes/batallas/batalla";
 import { useSelector } from "react-redux";
-import style from './combate.module.css'
-
+import style from './combate.module.css';
 
 const Combate = () => {
   const location = useLocation();
@@ -22,10 +21,9 @@ const Combate = () => {
   const [ganador, setGanador] = useState(null);
   const [pokemon1HP, setPokemon1HP] = useState(150); // defino la vida inicial de poke 1
   const [pokemon2HP, setPokemon2HP] = useState(150); // Defino la vida inicial de Poke 2
-
+  const [showExplosion, setShowExplosion] = useState(false); // Estado para mostrar el emoji 💥
 
   const handleAttack = () => {
-    // Calcula el daño de los ataques y actualiza la vida de los Pokémon
     if (peleaEnCurso) {
       const danio1 = calcularDanio(pokemon1, pokemon2);
       const danio2 = calcularDanio(pokemon2, pokemon1);
@@ -35,8 +33,14 @@ const Combate = () => {
       setPokemon1HP(nuevoPokemon1HP);
       setPokemon2HP(nuevoPokemon2HP);
 
+      // Muestra el emoji de explosión 💥
+      setShowExplosion(true);
 
-      // Verifica si uno de los Pokémon se queda sin vida
+      // Oculta el emoji después de 1 segundo
+      setTimeout(() => {
+        setShowExplosion(false);
+      }, 1000);
+
       if (nuevoPokemon1HP <= 0 || nuevoPokemon2HP <= 0) {
         setPeleaEnCurso(false);
         if (nuevoPokemon1HP <= 0) {
@@ -44,12 +48,12 @@ const Combate = () => {
         } else if (nuevoPokemon2HP <= 0) {
           setGanador(pokemon1);
         } else {
-          // Ambos Pokémon se quedaron sin vida al mismo tiempo, puedes manejarlo como desees
           setGanador("Empate");
         }
-       }
+      }
     }
   };
+
   const iniciarPelea = () => {
     if (!peleaEnCurso) {
       setPokemon1HP(150);
@@ -63,7 +67,6 @@ const Combate = () => {
     }
   }, [pokemon1, pokemon2]);
 
-
   return (
     <div className={style.body}>
       <div className={style.combateContainer}>
@@ -71,6 +74,7 @@ const Combate = () => {
           <div className={style.poke1}>
             <p>Pokemon 1: {pokemon1?.name}</p>
             <img src={pokemon1?.image} alt={pokemon1?.name} />
+            {showExplosion && <span className={style.explosion}>💥</span>}
             {peleaEnCurso && (
               <div className={style.lifeBar}>
                 <div
@@ -88,6 +92,7 @@ const Combate = () => {
           <div className={style.poke2}>
             <p>Pokemon 2: {pokemon2?.name}</p>
             <img src={pokemon2?.image} alt={pokemon2?.name}/>
+            {showExplosion && <span className={style.explosion}>💥</span>}
             {peleaEnCurso && (
               <div className={style.lifeBar}>
                 <div
@@ -114,4 +119,5 @@ const Combate = () => {
     </div>
   );
 }
+
 export default Combate;
