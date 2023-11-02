@@ -2,7 +2,7 @@ const axios = require('axios');
 const { Image } = require('../db');
 
 const getImg = async () => {
-    const apiInfo = await axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=1000`);
+    const apiInfo = await axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=500`);
     const result = apiInfo.data.results;
     
 

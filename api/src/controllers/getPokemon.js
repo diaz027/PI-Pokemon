@@ -20,7 +20,6 @@ const getPokemon = async () => {
             types: pokemon.Types.map(type => type.name).join(', ')
         }
     })
-console.log(pokemonDb);
     const respose = await axios.get(`${URL}`)
     const pokeResult = respose.data.results;
     const promises = pokeResult.map(async (pokemon) => {

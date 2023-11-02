@@ -35,7 +35,6 @@ const getName = async (name) => {
         weight: pokemon.weight,
         types: pokemon.types.map(type => type.type.name).join(', ')
     }
-    console.log(pokemonFund);
     return pokemonFund
    
 }

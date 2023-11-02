@@ -21,6 +21,11 @@
   margin-top: 5px;
 }
 
+.poke1 img,
+.poke2 img {
+  max-width: 100px; /* Cambia el valor al tamaño máximo deseado */
+  height: auto; /* Mantén la proporción original */
+}
 /* Estilo para el contenedor de Pokémon 1 */
 .poke1Container {
   position: absolute;

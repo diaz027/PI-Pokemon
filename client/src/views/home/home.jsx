@@ -70,6 +70,7 @@ const Home = () => {
     //ordenamientos
     const handlerOrder = (event) => {
         dispatch(orderAlfa(event.target.value));
+        console.log(event.target.value)
     }
 
     const handlerOrderAttack = (event) => {
@@ -104,7 +105,7 @@ const Home = () => {
                 </select>
 
                 <select className={style.selectFiltro} onChange={handlerOrderAttack}>
-                    <option value="todos">Min/Max</option>
+                    {/* <option value="todos">Min/Max</option> */}
                     <option value="ataqueMin">ataque min</option>
                     <option value="ataqueMax">ataque max</option>
                 </select>

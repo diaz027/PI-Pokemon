@@ -61,7 +61,13 @@ const reducer = (state = initialState, action) => {
 
         //orderdamiento
         case ORDER_A_Z:
-            
+           if (action.payload === 'todos') {
+                const allCopy = state.newPokes;
+                return {
+                    ...state,
+                    pokemones:[...allCopy]
+                }
+              }
               if (action.payload === 'A') {
                 const result = [...state.pokemones].sort((a, b) => a.name.localeCompare(b.name));
                 return {
@@ -70,20 +76,13 @@ const reducer = (state = initialState, action) => {
                 };
               }
               
-              if (action.payload === 'Z') {
+              else if (action.payload === 'Z') {
                 const result = [...state.pokemones].sort((a, b) => b.name.localeCompare(a.name));
                 return {
                   ...state,
                   pokemones: result,
                 };
-              }
-              else if (action.payload === 'todos') {
-                const allCopy = [...state.newPokes];
-                return {
-                  ...state,
-                  pokemones: allCopy, 
-                };
-              }
+              } 
 
         case ORDER_ATAQUE:
             if (action.payload === 'ataqueMin') {
@@ -102,13 +101,13 @@ const reducer = (state = initialState, action) => {
                     pokemones: [...result]
                 };
             }
-            else if (action.payload === 'todos') {
-                const allCopy = [...state.newPokes];
-                return {
-                  ...state,
-                  pokemones: allCopy, 
-                };
-              }
+            // else if (action.payload === 'todos') {
+            //     const allCopy = [...state.newPokes];
+            //     return {
+            //       ...state,
+            //       pokemones: allCopy, 
+            //     };
+            //   }
 
         default:
             return state;
