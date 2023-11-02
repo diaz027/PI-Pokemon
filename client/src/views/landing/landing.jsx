@@ -11,8 +11,8 @@ function Init() {
   return (
     
     <div className={style.body}>
-      <h1>bienvenidos a Pokedex</h1>
-      <button className={style.boton} onClick={navigateHandler}>HOME</button>
+      <h1>Bienvenidos a Pokedex</h1>
+      <button className={style.boton} onClick={navigateHandler}>Ingresar</button>
     </div>
   );
 }
