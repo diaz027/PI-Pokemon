@@ -98,6 +98,7 @@ const Home = () => {
             <div className={style.homeContainer}>
 
                 <select className={style.selectFiltro} onChange={handlerOrder}>
+                    <option value="todos">Todos</option>
                     <option value="A">A - Z</option>
                     <option value="Z">Z - A</option>
                 </select>

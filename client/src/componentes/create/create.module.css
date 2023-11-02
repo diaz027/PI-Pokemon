@@ -30,7 +30,7 @@ input {
 }
 
 .error {
-  color: red;
+  color: rgb(255, 0, 0);
   font-size: 13px;
   display: inline;
   margin-left: 5px;

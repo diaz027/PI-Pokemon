@@ -5,6 +5,22 @@
   height: 100vh;
 }
 
+.botonContainer {
+  display: flex;
+  justify-content: center; /* Para centrar horizontalmente */
+  align-items: center; /* Para centrar verticalmente */
+}
+.boton1 {
+  margin-right: 5px;
+  background-color: rgb(34, 34, 36);
+  border: 1px solid #fa0202;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 18px;
+  padding: 5px 10px;
+  margin-top: 5px;
+}
+
 /* Estilo para el contenedor de Pokémon 1 */
 .poke1Container {
   position: absolute;
