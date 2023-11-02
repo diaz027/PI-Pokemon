@@ -1,4 +1,5 @@
 const axios = require('axios');
+const sharp = require('sharp')
 const { Image } = require('../db');
 
 const getImg = async () => {
@@ -15,6 +16,11 @@ const getImg = async () => {
 
         if (response.length === 0) {
             // Si no existe, crea un nuevo registro en la base de datos
+            const imageBuffer = await axios.get(imageUrl, { responseType: 'arraybuffer' }); // Descarga la imagen
+            // Redimensiona la imagen a 200x200 píxeles
+            const resizedImageBuffer = await sharp(imageBuffer.data)
+                .resize(200, 200)
+                .toBuffer();
             await Image.create({ image:imageUrl});
         }
     }
