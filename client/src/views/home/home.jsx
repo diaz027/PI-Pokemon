@@ -95,7 +95,7 @@ const Home = () => {
 
     return (
         <div className={style.home}>
-            <div className={style.filters}>
+            <div className={style.homeContainer}>
 
                 <select className={style.selectFiltro} onChange={handlerOrder}>
                     <option value="A">A - Z</option>
@@ -127,7 +127,7 @@ const Home = () => {
 
             <div>
                 <button  className={style.selectFiltro} onClick={prevHandler} disabled={currentPage === 0}>Prev</button>
-                <span> pagina: {currentPage + 1} de {totalPage}</span>
+                <span style={{ color: 'white' }}> pagina: {currentPage + 1} de {totalPage}</span>
                 <button  className={style.selectFiltro} onClick={nextHandler} disabled={currentPage === totalPage - 1}>Next</button>
             </div>
 

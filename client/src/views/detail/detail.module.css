@@ -1,9 +1,16 @@
 .detail {
-    background-color: aqua;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-  
+  background-image: url('../../../assest/ash-y-pikachu-artwork_2880x1800_xtrafondos.com.jpg');
+  background-size: cover;
+  height: 100vh;
+  color: rgb(212, 0, 0);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.detailsContainer {
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para que los detalles sean legibles */
+  padding: 20px; /* Espaciado interno para los detalles */
+  color: white; /* Color del texto para los detalles */
+  /* Otros estilos según tus necesidades */
+}
