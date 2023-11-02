@@ -16,6 +16,7 @@ const Details = () => {
     return (
         <div className={style.detail}>
             <div className={style.detailsContainer}>
+                <h2>ID:{allPokemon?.id}</h2>
                 <h2>Nombre:{allPokemon?.name}</h2>
                 <h2>Vida:{allPokemon?.hp}</h2>
                 <h2>Ataque:{allPokemon?.attack}</h2>
@@ -24,7 +25,7 @@ const Details = () => {
                 <h2>Peso:{allPokemon?.weight}</h2>
                 <h2>Tipo:{allPokemon?.types && allPokemon?.types.join(', ')}</h2>
             </div>
-                <img className={style.img} src={allPokemon.image} />
+            <img className={style.img} src={allPokemon.image} />
         </div>
     )
 }
