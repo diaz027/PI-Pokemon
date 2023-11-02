@@ -29,7 +29,7 @@ console.log(pokemonDb);
         const pepe = {
             id: apiInfo.id,
             name: apiInfo.name,
-            image: apiInfo.sprites.front_default,
+            image: apiInfo.sprites.other.dream_world.front_default,
             hp: apiInfo.stats[0]["base_stat"],
             attack: apiInfo.stats[1]["base_stat"],
             defense: apiInfo.stats[2]["base_stat"],
@@ -47,3 +47,5 @@ console.log(pokemonDb);
 }
 
 module.exports = getPokemon;
+
+//image: apiInfo.sprites.other.dream_world.front_default,

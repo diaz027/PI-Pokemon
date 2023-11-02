@@ -39,7 +39,9 @@ input {
 .selectedImage {
   transform: scale(2);
   position: absolute;
-  right: 500px;
+  height: 200px;
+  width: 200px;
+  right: 200px;
   /* Mover la imagen a la derecha del contenedor */
   top: 300px;
   /* Mover la imagen hacia arriba */

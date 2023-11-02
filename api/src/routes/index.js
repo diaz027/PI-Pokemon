@@ -19,10 +19,4 @@ mainRouter.post('/pokemons', createPost)
 mainRouter.get('/types',getTypeHandlers )
 mainRouter.get('/imagenes', imagenHandlers)
 
-
-
-// Configurar los routers
-// Ejemplo: router.use('/auth', authRouter);
-
-
 module.exports = mainRouter;

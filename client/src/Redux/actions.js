@@ -19,7 +19,6 @@ export const getPokeName = (name) => {
             payload: response.data
         })
         } catch (error) {
-            console.log(error)
             alert(`No se encontró ningún perro con el nombre "${name}"`);
         }
     }
@@ -40,14 +39,12 @@ export const createPokemon = (data) =>{
     return async (dispatch) => {
         try {
             const response = await axios.post(`http://localhost:3001/pokemons`, data)
-            console.log(response.data);
             alert('ya esta creado')
             dispatch ({
                 type:CREATE_POKEMON,
                 payload: response.data,
             });
         } catch (error) {
-            console.log(error);
             alert(error.response.data.error)
             
         }
