@@ -104,32 +104,33 @@ const Home = () => {
                 </select>
 
                 <select className={style.selectFiltro} onChange={handlerOrderAttack}>
+                    <option value="todos">Min/Max</option>
                     <option value="ataqueMin">ataque min</option>
                     <option value="ataqueMax">ataque max</option>
                 </select>
 
 
-                <select className={style.selectFiltro}  onChange={handlerDbApi} >
+                <select className={style.selectFiltro} onChange={handlerDbApi} >
                     <option value="todos">API/BD</option>
                     <option value='api'>API</option>
                     <option value='db'>BD</option>
                 </select>
 
-                <select  className={style.selectFiltro}
+                <select className={style.selectFiltro}
                     onChange={handlerFilter}>
                     {allTYPE.map(types => <option name={types.name} key={types.key} value={types.name}>{types.name}</option>)}
                 </select>
             </div>
 
-            
-                <button className={`${style.buttonIniciarBatalla}`} onClick={startBattle}>⚔️</button>
+
+            <button className={`${style.buttonIniciarBatalla}`} onClick={startBattle}>⚔️</button>
 
             <Cards pokemones={pokeToDisplay} handlePokemonSelect={handlePokemonSelect} />
 
             <div>
-                <button  className={style.selectFiltro} onClick={prevHandler} disabled={currentPage === 0}>Prev</button>
+                <button className={style.selectFiltro} onClick={prevHandler} disabled={currentPage === 0}>Prev</button>
                 <span style={{ color: 'white' }}> pagina: {currentPage + 1} de {totalPage}</span>
-                <button  className={style.selectFiltro} onClick={nextHandler} disabled={currentPage === totalPage - 1}>Next</button>
+                <button className={style.selectFiltro} onClick={nextHandler} disabled={currentPage === totalPage - 1}>Next</button>
             </div>
 
 

@@ -102,6 +102,13 @@ const reducer = (state = initialState, action) => {
                     pokemones: [...result]
                 };
             }
+            else if (action.payload === 'todos') {
+                const allCopy = [...state.newPokes];
+                return {
+                  ...state,
+                  pokemones: allCopy, 
+                };
+              }
 
         default:
             return state;
