@@ -1,18 +1,30 @@
-.card{
-    background-color: rgb(1, 248, 13);
+.card {
+    background-color: rgba(0, 0, 0, 0.233);
     width: 200px;
     height: 350px;
     border-radius: 20px;
     color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: medium;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
 }
 
-.img{
-    display: inline-table;
-     height: 150px;
-     width: 150px;
- }
+.card a {
+    text-decoration: none; /* Eliminar subrayado en los enlaces */
+  }
+  
+  .card h2 {
+    color: white; /* Cambiar el color del texto a blanco */
+  }
 
-.boton{
+.img {
+    display: inline-table;
+    height: 150px;
+    width: 150px;
+    /* image-rendering: smooth; */
+}
+
+.boton {
     background-color: #ff4500;
     color: white;
     border-radius: 5px;

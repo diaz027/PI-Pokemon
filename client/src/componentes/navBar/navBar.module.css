@@ -1,36 +1,33 @@
-/* Estilo de la navbar que no se aplicará a la página landing */
-.nav {
-    background-color: rgb(0, 71, 6);
+/* Estilos adicionales para el contenido de la barra de navegación */
+  .nav {
+    background-color: #333;
     display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: flex-start; /* Alinea elementos verticalmente en la parte superior */
+    justify-content: center;
+    align-items: flex-start;
     padding: 15px;
-}
-.boton1 {
+  }
+  
+  .boton1 {
     margin-right: 10px;
     background-color: rgb(34, 34, 36);
     border: 1px solid #fa0202;
     border-radius: 5px;
     color: #ffffff;
-    /* width: 30px;
-    height: 30px; */
     font-size: 18px;
     padding: 5px 10px;
-}
-
-.boton {
+  }
+  
+  .boton {
     margin-right: 10px;
     background-color: rgb(34, 34, 36);
     border: 1px solid #fa0202;
     border-radius: 5px;
     color: #ffffff;
-    /* width: 30px;
-    height: 30px; */
     font-size: 18px;
     padding: 5px 10px;
-}
-
-/* Estilo específico para el botón "CREATE" */
-.createButton {
-    margin-top: 3px; /* Ajusta la cantidad de espacio para bajar el botón */
-}
+  }
+  
+  .createButton {
+    margin-top: 3px;
+  }
+  

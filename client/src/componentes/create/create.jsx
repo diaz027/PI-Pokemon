@@ -76,38 +76,38 @@ const CrearForm = () => {
                 <div className={style.column}>
 
                     <div className={style.formGroup}>
-                        <label >Nombre</label>
+                        <label >Nombre:</label>
                         <input type="text" name="name" value={data.name} onChange={handleChange} />
                         {errors.name && <p className={style.error}>{errors.name}</p>}
                     </div>
 
                     <div className={style.formGroup}>
-                        <label >vida</label>
+                        <label >vida:</label>
                         <input type="text" name="hp" value={data.hp} onChange={handleChange} />
                         {errors.hp && <p className={style.error}>{errors.hp}</p>}
                     </div>
 
                     <div className={style.formGroup}>
-                        <label >ataque</label>
+                        <label >ataque:</label>
                         <input type="text" name="attack" value={data.attack} onChange={handleChange} />
                         {errors.attack && <p className={style.error}>{errors.attack}</p>}
                     </div>
 
                     <div className={style.formGroup}>
-                        <label >defensa</label>
+                        <label >defensa:</label>
                         <input type="text" name="defense" value={data.defense} onChange={handleChange} />
                         {errors.defense && <p className={style.error}>{errors.defense}</p>}
                     </div>
 
                     <div className={style.formGroup}>
-                        <label >altura</label>
+                        <label >altura:</label>
                         <input type="text" name="height" value={data.height} onChange={handleChange} />
                         {errors.height && <p className={style.error}>{errors.height}</p>}
                     </div>
 
 
                     <div className={style.formGroup}>
-                        <label >peso</label>
+                        <label >peso:</label>
                         <input type="text" name="weight" value={data.weight} onChange={handleChange} />
                         {errors.weight && <p className={style.error}>{errors.weight}</p>}
                     </div>
@@ -115,7 +115,7 @@ const CrearForm = () => {
 
 
                 <div className={style.column}>
-                        <label >imagen</label>
+                        <label >imagen:</label>
                         <select name="image" value={data.image} onChange={handleChange}>
                             {newImgPokes.map((image) => <option key={image.id} value={image.image}>{image.image}</option>)}
                         </select>

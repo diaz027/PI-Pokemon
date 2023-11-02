@@ -1,44 +1,59 @@
 .body {
-    background-color: aqua;
-    height: 100vh;
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-  }
-  
-  .column {
-    width: 48%;
-  }
-  
-  .formGroup {
-    margin-bottom: 20px;
-    position: relative;
-  }
-  
-  .error {
-    color: red; /* Estilo para los mensajes de error */
-    font-size: 13px;
-    display: inline;
-    margin-left: 5px;
-  }
-  
-  .selectedImage {
-    transform: scale(2);
-    position: absolute;
-    right: 500px; /* Mover la imagen a la derecha del contenedor */
-    top: 350px; /* Mover la imagen hacia arriba */
-  }
-  
-  .button {
-    background-color: #ff4500;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .button:hover {
-    background-color: #ff6600;
-  }
-  
+  /* background-color: aqua; */
+  background-image: url('../../../assest/ash-y-pikachu-artwork_2880x1800_xtrafondos.com.jpg');
+  background-size: contain;
+  /* background-size: cover; */
+  background-position: center top;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.column {
+  width: 48%;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+label {
+  color: white;
+}
+
+/* Estiliza los campos de entrada con bordes redondos y una luz azul */
+input {
+  box-shadow:   0 0 20px#00f;
+  border-radius: 5px;
+}
+
+.error {
+  color: red;
+  font-size: 13px;
+  display: inline;
+  margin-left: 5px;
+}
+
+.selectedImage {
+  transform: scale(2);
+  position: absolute;
+  right: 500px;
+  /* Mover la imagen a la derecha del contenedor */
+  top: 300px;
+  /* Mover la imagen hacia arriba */
+}
+
+.button {
+  background-color: #ff4500;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #ff6600;
+}

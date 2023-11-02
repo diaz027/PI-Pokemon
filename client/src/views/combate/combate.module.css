@@ -8,7 +8,7 @@
 /* Estilo para el contenedor de Pokémon 1 */
 .poke1Container {
   position: absolute;
-  top: 25px;
+  top: 48px;
   right: 10px;
   animation: move1 0.5s ease-in;
 }
