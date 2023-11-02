@@ -16,15 +16,15 @@ const Details = () => {
     return (
         <div className={style.detail}>
             <div className={style.detailsContainer}>
-                <h2>nombre:{allPokemon?.name}</h2>
-                <h2>vida:{allPokemon?.hp}</h2>
-                <h2>ataque:{allPokemon?.attack}</h2>
-                <h2>defensa:{allPokemon?.defense}</h2>
-                <h2>altura:{allPokemon?.height}</h2>
-                <h2 >peso:{allPokemon?.weight}</h2>
-                <h2>tipo:{allPokemon?.types && allPokemon?.types.join(', ')}</h2>
-                <img src={allPokemon.image} />
+                <h2>Nombre:{allPokemon?.name}</h2>
+                <h2>Vida:{allPokemon?.hp}</h2>
+                <h2>Ataque:{allPokemon?.attack}</h2>
+                <h2>Defensa:{allPokemon?.defense}</h2>
+                <h2>Altura:{allPokemon?.height}</h2>
+                <h2>Peso:{allPokemon?.weight}</h2>
+                <h2>Tipo:{allPokemon?.types && allPokemon?.types.join(', ')}</h2>
             </div>
+                <img className={style.img} src={allPokemon.image} />
         </div>
     )
 }

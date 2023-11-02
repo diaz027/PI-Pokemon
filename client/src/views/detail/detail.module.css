@@ -4,13 +4,28 @@
   height: 100vh;
   color: rgb(212, 0, 0);
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 }
 .detailsContainer {
   background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para que los detalles sean legibles */
   padding: 20px; /* Espaciado interno para los detalles */
   color: white; /* Color del texto para los detalles */
-  /* Otros estilos según tus necesidades */
+  display: flex;
+  flex-direction: column; /* Cambiar la dirección a vertical */
+  align-items: left;
+  width: 500px;
+  position: relative;
+}
+
+.img{
+  position: absolute;
+  right: 450px;
+  top: 350px; /* Para alinear la parte superior de la imagen con el contenedor de detalles */
+  max-width: 100%;
+  height: auto;
+
+  display: inline-table;
+    height: 150px;
+    width: 150px;
 }
