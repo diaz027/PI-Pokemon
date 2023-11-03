@@ -6,8 +6,7 @@ const getType = async () => {
     const result = typeApi.data;
 
     for (const typeData of result.results) {//itera sobre cada elemento en el arreglo result.results
-        //Para cada iteración del bucle, typeData tomará el valor del elemento actual del arreglo
-        // y puedes acceder a sus propiedades.
+        
         const typeName = typeData.name;//se utiliza para acceder al nombre de cada tipo dentro del bucle.
 
         const existingType = await Type.findAll({ where: { name: typeName } });
