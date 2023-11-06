@@ -5,7 +5,7 @@ const getPokemonHandlers = async (req, res) =>{
         const newPokemon = await getPokemon()
         res.status(200).send(newPokemon)
     } catch (error) {
-        res.status(404).json({error: error.mesage})
+        res.status(404).json({error: error.message})
     }
 }
 module.exports = getPokemonHandlers;
