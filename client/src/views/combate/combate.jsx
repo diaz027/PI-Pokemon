@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { useLocation } from "react-router-dom";
 import { calcularDanio } from "../../componentes/batallas/batalla";
 import { useSelector } from "react-redux";
@@ -59,10 +59,6 @@ const Combate = () => {
     }
   };
 
-  useEffect(() => {
-    if (!pokemon1 || !pokemon2) {
-    }
-  }, [pokemon1, pokemon2]);
 
   return (
     <div className={style.body}>

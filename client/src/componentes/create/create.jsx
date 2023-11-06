@@ -47,6 +47,8 @@ const CrearForm = () => {
             !errors.defense &&
             !errors.height &&
             !errors.weight &&
+            !errors.image &&
+            !errors.types &&
             !errors.hp
         );
     };
@@ -119,6 +121,7 @@ const CrearForm = () => {
                         <select name="image" value={data.image} onChange={handleChange}>
                             {newImgPokes.map((image) => <option key={image.id} value={image.image}>{image.image}</option>)}
                         </select>
+                        {errors.image && <p className={style.error}>{errors.image}</p>}
                         {data.image && (
                             <img
                                 src={data.image} 
@@ -137,6 +140,7 @@ const CrearForm = () => {
                             </select>
                         </label>
                     </div>
+                    {errors.types && <p className={style.error}>{errors.types}</p>}
 
                     <button className={style.button} disabled={!dataIsValid}>CREAR</button>
                 </div>

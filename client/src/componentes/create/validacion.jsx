@@ -37,6 +37,14 @@ const validacion = (data) => {
     if (!/^\d{1,4}$/.test(data.hp)) {
         errors.hp = 'Los años de vida deben ser un número de hasta 4 dígitos';
     }
+
+    if (!data.image) {
+        errors.image = 'Debes seleccionar una imagen';
+    }
+
+    if (data.types.length === 0) {
+        errors.types = 'Debes seleccionar al menos un tipo';
+    }
     return errors;
 };
 
