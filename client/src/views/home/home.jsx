@@ -70,10 +70,11 @@ const Home = () => {
     //ordenamientos
     const handlerOrder = (event) => {
         dispatch(orderAlfa(event.target.value));
-        console.log(event.target.value)
+        setCurrentPage(0)
     }
 
     const handlerOrderAttack = (event) => {
+        setCurrentPage(0)
         dispatch(orderAttack(event.target.value))
     }
 
@@ -81,13 +82,14 @@ const Home = () => {
     //filtros
     const handlerDbApi = (event) => {
         const result = event.target.value
-        console.log(result);
+        setCurrentPage(0)
         dispatch(filterApiDb(result))
     }
 
     const handlerFilter = (event) => {
         const seleccion = event.target.value;
         setTypes(seleccion);
+        setCurrentPage(0)
         dispatch(filterTypes(seleccion))
     }
     useEffect(() => {

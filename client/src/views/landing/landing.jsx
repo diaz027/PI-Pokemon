@@ -1,7 +1,15 @@
 import {useNavigate} from 'react-router-dom'
 import style from './landing.module.css'
+import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+import { getPokemon } from '../../Redux/actions'
 
 function Init() {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getPokemon())
+  })
 
     const navigate = useNavigate()
     const navigateHandler = () => {
