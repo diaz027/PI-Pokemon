@@ -99,13 +99,13 @@ const Home = () => {
             <div className={style.homeContainer}>
 
                 <select className={style.selectFiltro} onChange={handlerOrder}>
-                    <option value="todos">Todos</option>
+                    <option value="todos">Todos API/DB</option>
                     <option value="A">A - Z</option>
                     <option value="Z">Z - A</option>
                 </select>
 
                 <select className={style.selectFiltro} onChange={handlerOrderAttack}>
-                    {/* <option value="todos">Min/Max</option> */}
+                    <option value="todos">Min/Max - API/DB</option>
                     <option value="ataqueMin">ataque min</option>
                     <option value="ataqueMax">ataque max</option>
                 </select>
