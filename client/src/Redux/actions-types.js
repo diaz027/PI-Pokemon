@@ -8,6 +8,6 @@ export const ORDER_ATAQUE = 'ORDER_ATAQUE'
 export const TYPES = 'TYPES'
 export const FILTER_API_DB = 'FILTER_API_DB'
 export const TYPES_FILTER = 'TYPES_FILTER'
-// export const  = ''
+export const CLEAR_DETAIL = 'CLEAR_DETAIL'
 // export const  = ''
 

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { CREATE_POKEMON, FILTER_API_DB, GET_ID, GET_NAME, GET_POKEMON, IMAGEN, ORDER_ATAQUE, ORDER_A_Z, TYPES, TYPES_FILTER } from './actions-types'
+import { CLEAR_DETAIL, CREATE_POKEMON, FILTER_API_DB, GET_ID, GET_NAME, GET_POKEMON, IMAGEN, ORDER_ATAQUE, ORDER_A_Z, TYPES, TYPES_FILTER } from './actions-types'
 
 export const getPokemon = () =>{
     return async (dispatch) =>{
@@ -88,3 +88,7 @@ export const orderAlfa = (order) =>{
 export const orderAttack = (order) =>{
     return{ type: ORDER_ATAQUE, payload: order }
 }
+
+export const limpiarDetails = () => {
+    return {type: CLEAR_DETAIL}
+  }
