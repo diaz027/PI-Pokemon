@@ -17,7 +17,7 @@ const Combate = () => {
   const [peleaEnCurso, setPeleaEnCurso] = useState(false);
   const [ganador, setGanador] = useState(null);
   const [pokemon1HP, setPokemon1HP] = useState(150); // defino la vida inicial de poke 1
-  const [pokemon2HP, setPokemon2HP] = useState(150); // Defino la vida inicial de Poke 2
+  const [pokemon2HP, setPokemon2HP] = useState(150); 
   const [showExplosion, setShowExplosion] = useState(false); // Estado para mostrar el emoji 💥
 
   const handleAttack = () => {
